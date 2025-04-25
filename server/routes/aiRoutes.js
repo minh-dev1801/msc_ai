@@ -8,7 +8,6 @@ dotenv.config();
 
 const router = express.Router();
 
-// Hàm lấy dữ liệu fieldCategoryData
 async function getFieldCategoryData() {
   const fields = await Bid.findAll({
     attributes: [
@@ -85,12 +84,10 @@ function selectChartData({ fieldCategories }, fieldCategoryData) {
   console.log("fieldCategoryData: ", fieldCategoryData);
   console.log("fieldCategories: ", fieldCategories);
 
-  // Kiểm tra nếu fieldCategories không phải là mảng hoặc rỗng
   if (!Array.isArray(fieldCategories) || fieldCategories.length === 0) {
     return [{ name: "an ninh mạng", value: 0 }];
   }
 
-  // Lấy dữ liệu cho từng lĩnh vực
   const result = fieldCategories
     .map((category) => {
       const item = fieldCategoryData.find(
@@ -98,9 +95,8 @@ function selectChartData({ fieldCategories }, fieldCategoryData) {
       );
       return item ? { name: item.name, value: item.value } : null;
     })
-    .filter(Boolean); // Loại bỏ các phần tử null
+    .filter(Boolean);
 
-  // Nếu không tìm thấy bất kỳ lĩnh vực nào, trả về giá trị mặc định
   return result.length > 0 ? result : [{ name: "an ninh mạng", value: 0 }];
 }
 
@@ -112,7 +108,6 @@ router.post("/interpret", async (req, res) => {
   }
 
   try {
-    // Lấy dữ liệu mới nhất từ cơ sở dữ liệu
     const fieldCategoryData = await getFieldCategoryData();
 
     const modelWithTools = model.bind({ tools });
