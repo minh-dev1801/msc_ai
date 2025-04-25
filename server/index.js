@@ -33,24 +33,7 @@ app.use(
 );
 app.use(express.json());
 
-app.get("/api/public", (req, res) => {
-  res.send("Public route");
-});
-
-app.get("/api/protected", keycloak.protect(), (req, res) => {
-  const userInfo = req.kauth.grant.access_token.content;
-
-  res.send({
-    message: "This is a protected endpoint",
-    user: {
-      username: userInfo.preferred_username,
-      email: userInfo.email,
-      roles: userInfo.realm_access?.roles || [],
-    },
-  });
-});
-
-app.post("/api/ai", keycloak.protect(), aiRoutes);
+app.use("/api/ai", aiRoutes);
 
 app.use("/api/fields", keycloak.protect(), fieldRoutes);
 
