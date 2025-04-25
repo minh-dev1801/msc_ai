@@ -173,9 +173,13 @@ const NavbarBody = () => {
           },
         }
       );
-      const type = res.data.type;
-      setChartType(type);
-      message.success(`Đã tạo biểu đồ dạng ${type.toUpperCase()}`);
+      const chartType = res.data.chartType;
+      const fieldCategories = res.data.fieldCategories;
+
+      setChartType(chartType);
+      setData(fieldCategories);
+
+      message.success(`Đã tạo biểu đồ dạng ${chartType.toUpperCase()}`);
     } catch (error) {
       console.log(error);
       message.error("Ai không thể phân tích propmt");

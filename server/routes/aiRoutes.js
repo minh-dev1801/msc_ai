@@ -1,10 +1,30 @@
 import express from "express";
 import { ChatOpenAI } from "@langchain/openai";
 import dotenv from "dotenv";
+import Bid from "../models/bidModel.js";
+import { Sequelize } from "../database/db.js";
 
 dotenv.config();
 
 const router = express.Router();
+
+// Hàm lấy dữ liệu fieldCategoryData
+async function getFieldCategoryData() {
+  const fields = await Bid.findAll({
+    attributes: [
+      "fieldCategory",
+      [Sequelize.fn("COUNT", Sequelize.col("id")), "count"],
+    ],
+    group: ["fieldCategory"],
+  });
+
+  return fields
+    .map((item) => ({
+      name: item.fieldCategory,
+      value: parseInt(item.get("count")) || 0,
+    }))
+    .filter((item) => item.name);
+}
 
 const model = new ChatOpenAI({
   modelName: "gpt-4o-mini",
@@ -27,10 +47,30 @@ const tools = [
       },
     },
   },
+  {
+    type: "function",
+    function: {
+      name: "selectChartData",
+      description:
+        "Chọn các lĩnh vực và giá trị tương ứng dựa trên danh sách tên lĩnh vực được nêu rõ trong prompt. Chỉ sử dụng các lĩnh vực được đề cập chính xác như 'an ninh mạng', 'mạng máy tính', v.v.",
+      parameters: {
+        type: "object",
+        properties: {
+          fieldCategories: {
+            type: "array",
+            items: { type: "string" },
+            description:
+              "Danh sách các tên lĩnh vực được nêu rõ trong prompt, ví dụ: ['an ninh mạng', 'mạng máy tính']",
+          },
+        },
+        required: ["fieldCategories"],
+      },
+    },
+  },
 ];
 
 function selectChartType({ description }) {
-  if (description.includes("tròn") || description.includes("pie")) {
+  if (description.includes("pie") || description.includes("tròn")) {
     return "pie";
   } else if (description.includes("line") || description.includes("hàng")) {
     return "line";
@@ -41,6 +81,29 @@ function selectChartType({ description }) {
   }
 }
 
+function selectChartData({ fieldCategories }, fieldCategoryData) {
+  console.log("fieldCategoryData: ", fieldCategoryData);
+  console.log("fieldCategories: ", fieldCategories);
+
+  // Kiểm tra nếu fieldCategories không phải là mảng hoặc rỗng
+  if (!Array.isArray(fieldCategories) || fieldCategories.length === 0) {
+    return [{ name: "an ninh mạng", value: 0 }];
+  }
+
+  // Lấy dữ liệu cho từng lĩnh vực
+  const result = fieldCategories
+    .map((category) => {
+      const item = fieldCategoryData.find(
+        (data) => data.name.toLowerCase() === category.toLowerCase()
+      );
+      return item ? { name: item.name, value: item.value } : null;
+    })
+    .filter(Boolean); // Loại bỏ các phần tử null
+
+  // Nếu không tìm thấy bất kỳ lĩnh vực nào, trả về giá trị mặc định
+  return result.length > 0 ? result : [{ name: "an ninh mạng", value: 0 }];
+}
+
 router.post("/interpret", async (req, res) => {
   const { prompt } = req.body;
 
@@ -49,27 +112,42 @@ router.post("/interpret", async (req, res) => {
   }
 
   try {
+    // Lấy dữ liệu mới nhất từ cơ sở dữ liệu
+    const fieldCategoryData = await getFieldCategoryData();
+
     const modelWithTools = model.bind({ tools });
 
     const response = await modelWithTools.invoke([
       ["human", prompt],
       [
         "system",
-        "Sử dụng công cụ selectChartType để chọn loại biểu đồ phù hợp.",
+        `Sử dụng công cụ selectChartType để chọn loại biểu đồ dựa trên mô tả về loại biểu đồ (như 'tròn', 'cột', 'hàng'). Sử dụng công cụ selectChartData để chọn danh sách các lĩnh vực được nêu rõ trong prompt (ví dụ: 'an ninh mạng', 'mạng máy tính'). Chỉ truyền các lĩnh vực được đề cập chính xác trong prompt vào fieldCategories, không suy ra hoặc thêm các lĩnh vực khác như 'Mạng LAN', 'Mạng WAN', v.v.`,
       ],
     ]);
 
     if (response.tool_calls && response.tool_calls.length > 0) {
-      const toolCall = response.tool_calls[0];
-      if (toolCall.name === "selectChartType") {
-        const args = toolCall.args;
-        const result = selectChartType(args);
-        res.json({ type: result });
-      } else {
-        res.status(400).json({ error: "Công cụ không được hỗ trợ" });
+      const results = {};
+
+      for (const toolCall of response.tool_calls) {
+        if (toolCall.name === "selectChartType") {
+          const args = toolCall.args;
+          results.chartType = selectChartType(args);
+        } else if (toolCall.name === "selectChartData") {
+          const args = toolCall.args;
+          console.log("selectChartData args: ", args);
+          results.fieldCategories = selectChartData(args, fieldCategoryData);
+        } else {
+          return res.status(400).json({ error: "Công cụ không được hỗ trợ" });
+        }
       }
+
+      console.log("results: ", results);
+      res.status(200).json(results);
     } else {
-      res.json({ type: "pie" });
+      res.status(200).json({
+        chartType: "pie",
+        fieldCategories: [{ name: "an ninh mạng", value: 0 }],
+      });
     }
   } catch (err) {
     console.error("[LangChain Error]", err);
