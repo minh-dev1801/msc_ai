@@ -33,7 +33,7 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/api/ai", aiRoutes);
+app.use("/api/ai", keycloak.protect(), aiRoutes);
 
 app.use("/api/fields", keycloak.protect(), fieldRoutes);
 
