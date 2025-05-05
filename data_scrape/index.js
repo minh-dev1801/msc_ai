@@ -2,10 +2,11 @@ import axios from "axios";
 import https from "https";
 import { promises as fs } from "fs";
 import { setTimeout } from "timers/promises";
-// import { cleanAndNormalizeBidData } from "./utils/dataNormalization.js";
 import { cleanAndNormalizeBidData } from "./utils/dataNormalization1.js";
 import { connectToSQLServer } from "./database/db.js";
 import Bid from "./models/bidModel.js";
+import { normalVendorsInfo } from "./utils/normalVendor.js";
+import { Vendor } from "./models/index.js";
 
 const keyword = process.argv[2] || "";
 const type = process.argv[3] || "";
@@ -69,7 +70,7 @@ async function enrichDataWithDetails(data) {
     const promises = batch.map(async (item) => {
       if (!item.inputResultId) {
         console.log(`⚠️ Bỏ qua mục không có inputResultId: ${item.notifyNo}`);
-        return item;
+        return null;
       }
 
       const details = await fetchAdditionalDetails(item.inputResultId);
@@ -77,7 +78,8 @@ async function enrichDataWithDetails(data) {
     });
 
     const results = await Promise.all(promises);
-    enrichedData.push(...results);
+    const validResults = results.filter((result) => result !== null);
+    enrichedData.push(...validResults);
     await setTimeout(CONFIG.REQUEST_DELAY);
   }
 
@@ -287,7 +289,6 @@ const saveToSQLServer = async (data) => {
 async function main() {
   try {
     console.time("⏳ Quá trình thu thập dữ liệu");
-    await Bid.drop();
     await connectToSQLServer();
 
     const typeFilter = buildTypeFilters(type);
@@ -295,11 +296,14 @@ async function main() {
 
     if (finalData.length > 0) {
       console.log("🔄 Đang lấy thông tin chi tiết từ API...");
+      //Lọc danh sách các gói thầu chỉ có trường `inputResultId`
       const enrichedData = await enrichDataWithDetails(finalData);
 
       const cleanedData = await cleanAndNormalizeBidData(enrichedData);
-
       await saveToSQLServer(cleanedData);
+
+      const vendorsInfo = await normalVendorsInfo(enrichedData);
+      await Vendor.bulkCreate(vendorsInfo);
 
       const outputFile = `data-${keyword || "all"}-${type || "tatCa"}.json`;
       await fs.writeFile(outputFile, JSON.stringify(enrichedData, null, 2));

@@ -1,0 +1,1836 @@
+[
+  {
+    "name": "Cisco",
+    "feature": "Có khả năng ghép nhiều Switch thành một switch (Stackable):Hỗ trợ lên đến 8 Switch\r\nStackable: Bao gồm Module và cáp kết nối kèm theo\r\nRack-mountable:Có vật tư kèm theo\r\nCó khả năng quản trị (Manage) qua giao diện Web, SSH: Có hỗ trợ\r\nCổng mạng trên mỗi thiết bị: \" 24x 10/100/1000 ports, 4x 10 Gigabit SFP+, 1 x RJ-45 Console port\"\r\nCPU: ARM dual-core at 1.4 GHz\r\nFlash: 512 MB\r\nDRAM: 1 GB DDR4\r\nPacket buffer: 1.5 MB\r\nNăng lực thiết bị\r\nCông suất truyền 1 triệu gói tin trên giây (64-byte packets):95.23Mpps\r\nCông suất chuyển mạch:128Gbps",
+    "quantity": 2,
+    "unitPrice": 47850000,
+    "totalAmount": 95700000
+  },
+  {
+    "name": "Cisco",
+    "feature": "Có khả năng ghép nhiều Switch thành một switch (Stackable): Hỗ trợ lên đến 8 Switch\r\nStackable: Bao gồm Module và cáp kết nối kèm theo\r\nRack-mountable: Có vật tư kèm theo\r\nCó khả năng quản trị (Manage) qua giao diện Web, SSH: Có hỗ trợ\r\nCổng mạng trên mỗi thiết bị: 20 x 10 Gigabit SFP+, 4 x 10 Gigabit copper ports (combo with 4 x SFP+), 1 x GE management port, Số lượng Module kèm theo: 14 module SFP Multimode 10Gbps và 06 Module SFP to RJ45\"\r\nCPU:Tối thiểu là Dual-core và có tốc độ xử lý tối thiểu 1,4 GHz\r\nFlash:512 MB\r\nDRAM:1 GB DDR4\r\nPacket buffer: 8 MB\r\nNăng lực thiết bị\r\nCông suất truyền 1 triệu gói tin trên giây (64-byte packets): 357.14Mpps\r\nCông suất chuyển mạch: 480 Gbps",
+    "quantity": 2,
+    "unitPrice": 189035000,
+    "totalAmount": 378070000
+  },
+  {
+    "name": "Sophos",
+    "feature": "Phần cứng mỗi thiết bị\r\nRack-mountable: Có vật tư kèm theo\r\nHard Drive: 240 GB SSD\r\nCổng kết nối: 4 x GE copper,\"4 x SFP+ 10 GE fiber (bao gồm Module SFP+,10 GE Multimode)\"\r\nCổng quản trị: 1 x RJ45 MGMT\r\nHỗ trợ module mở rộng cổng mạng: Có hỗ trợ\r\nMemory: 32 DDR4\r\nThời gian bảo hành và bản quyền tường lửa: 5 năm\r\n\"Thời gian bảo hành phần cứng và bản quyền cho các tính năng:\r\n- Firewall\r\n- Intrusion Prevention System\r\n- ATP: Advanced Threat Prevention\r\n- Web Protection\r\n- Application Control\r\n- Bảo vệ DNS\r\n- Zero-day Protection\r\n- Chạy chế độ HA Active – Standby",
+    "quantity": 2,
+    "unitPrice": 853380000,
+    "totalAmount": 1706760000
+  },
+  {
+    "name": "CHECK POINT",
+    "feature": "CheckPoint 19100 Plus:\n- Interface: 8x10GbE Fiber include 06 transceivers, 4x25GbE Fiber, \n- Memory: 128GB RAM\n- Dual PSUs",
+    "quantity": 3,
+    "unitPrice": 8420060000,
+    "totalAmount": 25260180000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "quantity": 2,
+    "unitPrice": 1576800000,
+    "totalAmount": 3153600000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận",
+    "quantity": 2,
+    "unitPrice": 482500800,
+    "totalAmount": 965001600
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "quantity": 1,
+    "unitPrice": 721970000,
+    "totalAmount": 721970000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "quantity": 1,
+    "unitPrice": 196311600,
+    "totalAmount": 196311600
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "quantity": 2,
+    "unitPrice": 196311600,
+    "totalAmount": 392623200
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Phát hiện và ngăn chặn các loại mã độc với cơ sở dữ liệu được cập nhật hàng ngày.\r\n- Phát hiện và ngăn chặn các hình thức tấn công trên lớp mạng, tấn công khai thác lỗ hổng bảo mật.\r\n- Phát hiện và ngăn chặn các kết nối C2C, sử dụng DNS sinkholing để xác định các máy bị lây nhiễm",
+    "quantity": 2,
+    "unitPrice": 363540000,
+    "totalAmount": 727080000
+  },
+  {
+    "name": "Paessler",
+    "feature": "- Có khả năng giám sát thiết bị qua SNMP\r\n- Sử dụng bản đồ thời gian thực với thông tin trạng thái trực tiếp\r\n- Nhận thông báo khi có vấn đề hoặc số liệu bất thường\r\n- Tùy chỉnh mẫu báo cáo\r\n- Khả năng giám sát lên đến 10.000 sensor\r\n- Cung cấp bản vá, bản sửa, bản nâng cấp, firmware mới nhất \r\n- Phản hồi trong vòng 24 giờ",
+    "quantity": 1,
+    "unitPrice": 272200000,
+    "totalAmount": 272200000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "quantity": 2,
+    "unitPrice": 1127520000,
+    "totalAmount": 2255040000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "quantity": 2,
+    "unitPrice": 345021120,
+    "totalAmount": 690042240
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "quantity": 1,
+    "unitPrice": 11868000,
+    "totalAmount": 11868000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "quantity": 1,
+    "unitPrice": 3227040,
+    "totalAmount": 3227040
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "quantity": 2,
+    "unitPrice": 147906000,
+    "totalAmount": 295812000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "- Phát hiện và ngăn chặn các loại mã độc với cơ sở dữ liệu được cập nhật hàng ngày.\r\n- Phát hiện và ngăn chặn các hình thức tấn công trên lớp mạng, tấn công khai thác lỗ hổng bảo mật.\r\n- Phát hiện và ngăn chặn các kết nối C2C, sử dụng DNS sinkholing để xác định các máy bị lây nhiễm",
+    "quantity": 2,
+    "unitPrice": 273900000,
+    "totalAmount": 547800000
+  },
+  {
+    "name": "Juniper",
+    "feature": "Tham chiếu tại \"Bảng tuyên bố đáp ứng kỹ thuật\"",
+    "quantity": 1,
+    "unitPrice": 660000000,
+    "totalAmount": 660000000
+  },
+  {
+    "name": "Juniper",
+    "feature": "Tham chiếu tại \"Bảng tuyên bố đáp ứng kỹ thuật\"",
+    "quantity": 2,
+    "unitPrice": 675000000,
+    "totalAmount": 1350000000
+  },
+  {
+    "name": "IMPERVA",
+    "feature": "3 năm bản quyền Agent for Bigdata cho Database Firewall - Agent for Big Data, Subscription Software License, Annual Enhanced Subscription Priced per Big Data\nnode/server - 3 years",
+    "quantity": 9,
+    "unitPrice": 376100000,
+    "totalAmount": 3384900000
+  },
+  {
+    "name": "STORMSHIED",
+    "feature": "3 Năm bản quyền phần mềm chống thất thoát dữ liệu (DLP) - Stormshield Enpoint Security Evolution - 3years",
+    "quantity": 101,
+    "unitPrice": 4725000,
+    "totalAmount": 477225000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "Theo yêu cầu tại chương V_E-HSMT",
+    "quantity": 1,
+    "unitPrice": 1412722000,
+    "totalAmount": 1412722000
+  },
+  {
+    "name": "Sophos",
+    "feature": "Thiết bị tường lửa\nAppliance with 4 GE + 4x 2.5GE + 4 SFP+ ports, 2 expansion\nbays for optional. Flexi Port modules, SSD + Base License (incl.\nFW, VPN & Wireless) for unlimited users + power cable\nThông lượng tường lửa 75,000 Mbps\nThông lượng IMIX 33,000 Mbps\nThông lượng IPS 29,500 Mbps\nĐộ trễ Firewall (64 byte UDP) 3 µs\nThông lượng bảo vệ khỏi các mối nguy hại (TP) 6,500 Mbps\nKết nối đồng thời 16,600,000\nSố kết nối mới mỗi giây 368,000\nThông lượng IPSEC VPN 62,500 Mbps\nThông lượng kiểm tra Xstream SSL/TLS 8,000 Mbps\nKết nối đồng thời Xtream SSL/TLS 276,480\nTích hợp đĩa cứng HDD/SSD 1 x min. 240 GB SATA-III\nSSD\nSố lượng cổng giao tiếp mạng 4 x GbE copper\n4 x 2.5 GbE copper\n4 x SFP+ 10 GbE fiber\nSố lượng module mở rộng 2\nModule Cổng FleXi (tùy chọn) 8 port GbE copper\n8 port GbE SFP fiber\n4 port 10 GbE SFP+ fiber\n4 port GbE copper bypass (2 pairs)\n4 port GbE copper PoE +\n4 port GbE copper\n4 port 2.5 GbE copper PoE\n2 port GbE Fiber (LC) bypass\n+ 4 port GbE SFP FiberMàn hình hiển thị LCD 1\nKích cỡ thiết bị 1U rackmount\nNguồn Internal auto-ranging AC-DC\n100-240VAC, 3.7-7.4A@50-60 Hz\nExternal Redundant PSU Option\nNetwork Protection (bảo mật mạng)\nTích hợp hệ thống chống xâm nhập IPS\nPhòng chống các mối đe dạo nâng cao\nNgăn chặn các tấn công DDoS DoS, DDoS, port scan\nTự động ngăn chặn mọi traffic từ các máy đầu cuối bị nhiễm mã\nđộc\nQuản lý tập trung tất cả các thiết bị SD-RED\nNgăn chặn gói tin theo vùng địa lý\nChính sách theo network/người dùng/thời gian/vùng mạng\nĐịnh tuyến static, multicast (PIM-SM), dynamic (RIP, BGP,\nOSPF)\nHỗ trợ tính năng User Self Services portal\nCân bằng tải cho nhiều đường Internet\nHỗ trợ giao thức 802.3ad (LAG)\nHỗ trợ giao thức VPN site-to-site SSL, IPSec, 256- bit\nAES/3DES,\nPFS, RSA, X.509 certificates, pre-shared key\nTruy cập từ xa bằng giao thức VPN SSL, IPSec, iPhone/iPad/\nCisco/Android VPN client support\nHỗ trợ VPN không cần cài Agent: HTML5\nHỗ trợ xác thực qua\n* Active Directory\n* eDirectory\n* Radius\n* Tacacs+\n* LDAP\nAgent xác thực máy chủ cho Active Directory SSO, STAS,\nSATC.\nHỗ trợ Single Sign-On: Active directory,\neDirectory, RADIUS Accounting\nHỗ trợ Route-based VPN\nPhân chia đường hầm thông minh để định tuyến lưu lượng tối\nưu\nKiểm soát truy cập thiết bị linh hoạt cho các dịch vụ theo zone\nWeb Protection (bảo mật truy cập web)\nHỗ trợ quét mã độc trên giao thức HTTP/S, FTP, Web-based\nEmail\nSử dụng 2 Engines để quét mã độc\nQuản lý ứng dụng theo category, characteristics, technology,\nrisk level\nTự động nhận dạng, phân loại và kiểm soát mọi ứng dụng, kể cả\nứng dụng mới, ứng dụng chưa biết\nQuản lý ứng dụng theo User và Network\nGiới hạn băng thông theo ứng dụng, theo danh mục Web\nHỗ trợ nhận dạng và định danh các ứng dụng cloud\nNgăn chặn các ứng dụng có nguy cơ PUAs\nBáo cáo hoặc chặn nội dung web theo danh sách từ khóa\nBảo vệ trực tiếp theo thời gian thực\nBảo vệ web nâng cao khỏi phần mềm độc hại với mô phỏng\nJavaScriptSmart Filter cho phép các chính sách động tự động cập nhật khi\ncác mẫu mới được thêm vào.\nHỗ trợ lọc web và quét mã độc theo cơ chế transparent proxy\nWeb server Protection (Bảo vệ Máy chủ Web)\nWeb Application Firewall Protection\nNgăn chặn các hình thức tấn công: URL/Form hardening\nCông cụ chống vi-rút kép (Sophos và Avira)\nCân bằng tải tích hợp phân chia lưu lượng truy cập trên nhiều\nmáy chủ\nXác thực ngược (offloading) dựa trên biểu mẫu và xác thực cơ\nbản để truy cập máy chủ\nHỗ trợ khả năng tương thích với các cấu hình khác nhau và các\ntriển khai non-standard\nNgăn chặn tấn công form hardening với kỹ thuật deep-linking\nNgăn chặn truy cập theo dạng Directory traversal\nNgăn chặn tấn công SQL injection\nMã hóa HTTPS (TSL/SSL) chống offloading\nchống giả mạo Cookie signing với chữ ký số\nManagement (Quản trị tường lửa)\nSao lưu và Phục hồi cấu hình theo theo nhu cầu hằng ngày, hằng\ntháng, .. Tại local, qua FTP và Email\nPhân quyền quản trị\nThông báo qua email hoặc SNMP\nTự động thông báo bản cập nhật mới\nHỗ trợ tích hợp API của bên thứ 3\nHỗ trợ Zero-Touch deployment\nHigh Avaibility theo chế độ active/passive, active/active\nCho phép cài đặt và sửa đổi chính sách trong cùng 1 lần và tự\nđộng đồng bộ hóa với tất cả các tường lửa trong nhóm.\nHỗ trợ kiểm tra đầy đủ lịch sử và giám sát trạng thái của các\nthay đổi trong group policy\nLogging và Reporting (báo cáo và ghi log)\nTích hợp đầy đủ báo cáo trong thiết bị\nHỗ trợ báo cáo tập trung trên Cloud",
+    "quantity": 1,
+    "unitPrice": 420000000,
+    "totalAmount": 420000000
+  },
+  {
+    "name": "Sophos",
+    "feature": "License Standard Protection 2 năm",
+    "quantity": 1,
+    "unitPrice": 388000000,
+    "totalAmount": 388000000
+  },
+  {
+    "name": "Sophos",
+    "feature": "License Webserver Protection 2 năm",
+    "quantity": 1,
+    "unitPrice": 130000000,
+    "totalAmount": 130000000
+  },
+  {
+    "name": "Tham chiếu \"Danh mục vật tư thiết bị\" dự thầu",
+    "feature": "Tham chiếu \"Cam kết kỹ thuật\" dự thầu",
+    "quantity": 12,
+    "unitPrice": 869000000,
+    "totalAmount": 10428000000
+  },
+  {
+    "name": "Tham chiếu \"Danh mục vật tư thiết bị\" dự thầu",
+    "feature": "Tham chiếu \"Cam kết kỹ thuật\" dự thầu",
+    "quantity": 12,
+    "unitPrice": 130300000,
+    "totalAmount": 1563600000
+  },
+  {
+    "name": "PaloAlto",
+    "feature": "Tham chiếu\n“Cấu hình thiết\nbị đề xuất” của\nnhà thầu",
+    "quantity": 2,
+    "unitPrice": 328500000,
+    "totalAmount": 657000000
+  },
+  {
+    "name": "Sophos",
+    "feature": "- Tích hợp hệ thống chống xâm nhập IPS\r\n - Phòng chống các mối đe dạo nâng cao \r\n- Đánh giá mức độ nguy hại của người dùng (UTQ)\r\n - Ngăn chặn các tấn công\r\n - Công nghệ kết hợp giữa Firewall gateway và endpoint\r\n để phòng chống lại mối đe dạo nâng cao \r\n- Chống xâm nhập: theo mẫu dấu hiệu\r\n - Ngăn chặn gói tin theo vùng địa lý\r\n - Chính sách theo network/người dùng \r\n- Routing \r\n- Cân bằng tải cho nhiều đường WAN\r\n - Hỗ trợ multipath Rule cho cân bằng tải\r\n - Hỗ trợ giao thức VPN site-to-site giao thức - Truy cập từ xa bằng giao thức VPN\r\n- Hỗ trợ VPN  với HTML5 Portal\r\n- Hỗ trợ VPN client trên nhiều thiết bị đầu cuối\r\n- Hỗ trợ xác thực qua : Active Directory, eDirectory, Radius, Tacacs+, LDAP\r\n- Hỗ trợ xác thực người dùng qua phần mềm cho máy trạm\r\n- Hỗ trợ công nghệ VPN Remote Ethernet Device (RED)\r\n- Hỗ trợ giao thức Mã hóa cho VPN\r\n- Hỗ trợ quét mã độc trên giao thức : HTTP/S, FTP\r\n- Lọc web theo địa chỉ URL\r\n- Quản lý ứng dụng theo User và Network\r\n- Xác thực qua nhiều cơ chế Transparent, Proxy và Client\r\n- Hỗ trợ kỹ thuật tại Việt Nam",
+    "quantity": 1,
+    "unitPrice": 134100000,
+    "totalAmount": 134100000
+  },
+  {
+    "name": "Palo Alto\nPalo Alto\nF5 Network",
+    "feature": "\"PA-3220, Precision AI Network Security Subscription Bundle\n(Advanced Threat Prevention, Advanced  URL Filtering, Advanced Wildfire, Advanced DNS Security).1 years (12 months) term\"\nPartner enabled Premium support renewal, PA-3220\nBIG-IP SERVICE: STANDARD, (LEVEL 1-3)",
+    "quantity": 1,
+    "unitPrice": 2161857377,
+    "totalAmount": 2161857377
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "Gia hạn bản quyền phần mềm cho thiết bị Firewall Checkpoint – 5400 NGTP (từ Ngày 17/01/2025 đến Ngày 30/06/2025): \n+ Renewal CPCES-CO-STANDARD-ADD for:\nProduct: CPAP SG5400-NGTP\nID: 00:1C:7F:8D:AD:B1\nEnd Date: 30-Jun-2026\n+ Enterprise Based Protection-Next Generation Threat Prevention Package Including IPS, APCL, URLF, AV, ABOT, ASPM and ADNS blades for:\nProduct: CPAP-SG5400-NGTP\nID: 00:1C:7F:8D:AD:B1\nEnd Date: 30-Jun-2026",
+    "quantity": 1,
+    "unitPrice": 324325800,
+    "totalAmount": 324325800
+  },
+  {
+    "name": "Palo Alto Networks",
+    "feature": "- Palo Alto Networks PA-5410 with redundant AC power supplies\n\n- Partner enabled premium support 3-year term, PA-5410\n- PA-5410, Threat prevention subscription, for one (1) device in an HA pair, 1 year (12 months) term\n\n- Power cord for PDU with IEC-60320 C13 and IEC-60320 C14 cord end, 15A, 250V max, 10ft",
+    "quantity": 2,
+    "unitPrice": 2330000000,
+    "totalAmount": 4660000000
+  },
+  {
+    "name": "Fortinet",
+    "feature": "''Thiết bị tường lửa Fortinet FG-601F-BDL-950-12 (Model: FG-601F)\n- 4x 25G SFP28 slots, 4 x 10GE SFP+ slots, 18 x GE RJ45 ports (including 1 x MGMT port, 1 X HA port, 16 x switch ports), 8 x GE SFP slots, SPU NP7 and CP9 hardware accelerated, 480GB onboard SSD storage, dual AC power supplies.\n- Hardware plus 1 Year FortiCare Premium and FortiGuard Unified Threat Protection (UTP)",
+    "quantity": 2,
+    "unitPrice": 1196250000,
+    "totalAmount": 2392500000
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 0,
+    "totalAmount": 2667869660
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 54,
+    "unitPrice": 0,
+    "totalAmount": 7128265140
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 1246,
+    "unitPrice": 0,
+    "totalAmount": 32863330990
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 0,
+    "totalAmount": 3259700580
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 14,
+    "unitPrice": 0,
+    "totalAmount": 4744422340
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 351,
+    "unitPrice": 0,
+    "totalAmount": 14902552665
+  },
+  {
+    "name": "Tham chiếu tài liệu \"Danh mục chi tiết hàng hóa chào thầu\"",
+    "feature": "N/A",
+    "quantity": 488,
+    "unitPrice": 0,
+    "totalAmount": 17039987904
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 504000000,
+    "totalAmount": 504000000
+  },
+  {
+    "name": "Tufin",
+    "feature": "N/A",
+    "quantity": 38,
+    "unitPrice": 319572000,
+    "totalAmount": 12143736000
+  },
+  {
+    "name": "Tufin",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 319572000,
+    "totalAmount": 319572000
+  },
+  {
+    "name": "Tham chiếu bảng Danh mục hàng hóa chào thầu",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 868563200,
+    "totalAmount": 1737126400
+  },
+  {
+    "name": "Palo Alto Networks",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 4974890800,
+    "totalAmount": 19899563200
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 1599674670,
+    "totalAmount": 1599674670
+  },
+  {
+    "name": "NA",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 132000000,
+    "totalAmount": 132000000
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 121000000,
+    "totalAmount": 121000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 763664000,
+    "totalAmount": 0
+  },
+  {
+    "name": "Imperva",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 450100000,
+    "totalAmount": 450100000
+  },
+  {
+    "name": "Imperva",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 22700000,
+    "totalAmount": 90800000
+  },
+  {
+    "name": "Dell",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 434566000,
+    "totalAmount": 869132000
+  },
+  {
+    "name": "Dell",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 33269500,
+    "totalAmount": 133078000
+  },
+  {
+    "name": "Dell",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 10584200,
+    "totalAmount": 42336800
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 425243500,
+    "totalAmount": 425243500
+  },
+  {
+    "name": "F5",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 330500000,
+    "totalAmount": 330500000
+  },
+  {
+    "name": "F5",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 473000000,
+    "totalAmount": 473000000
+  },
+  {
+    "name": "F5",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 71500000,
+    "totalAmount": 71500000
+  },
+  {
+    "name": "Ubiquiti",
+    "feature": "N/A",
+    "quantity": 16,
+    "unitPrice": 5335000,
+    "totalAmount": 85360000
+  },
+  {
+    "name": "Ubiquiti",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 14245000,
+    "totalAmount": 14245000
+  },
+  {
+    "name": "Ubiquiti",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 16115000,
+    "totalAmount": 16115000
+  },
+  {
+    "name": "AMP Netconnect",
+    "feature": "N/A",
+    "quantity": 5,
+    "unitPrice": 5555000,
+    "totalAmount": 27775000
+  },
+  {
+    "name": "tienphatplastic",
+    "feature": "N/A",
+    "quantity": 70,
+    "unitPrice": 18700,
+    "totalAmount": 1309000
+  },
+  {
+    "name": "Dintek",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 2145000,
+    "totalAmount": 2145000
+  },
+  {
+    "name": "UNIRACK",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 1485000,
+    "totalAmount": 1485000
+  },
+  {
+    "name": "Vietnam",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 3300000,
+    "totalAmount": 3300000
+  },
+  {
+    "name": "VIETTECH",
+    "feature": "N/A",
+    "quantity": 16,
+    "unitPrice": 440000,
+    "totalAmount": 7040000
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 291808000,
+    "totalAmount": 583616000
+  },
+  {
+    "name": "Bkav",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 490000000,
+    "totalAmount": 490000000
+  },
+  {
+    "name": "Check Point ",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 361020000,
+    "totalAmount": 722040000
+  },
+  {
+    "name": "Check Point ",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 51915000,
+    "totalAmount": 51915000
+  },
+  {
+    "name": "Palo Alto",
+    "feature": "N/A",
+    "quantity": 25,
+    "unitPrice": 233600000,
+    "totalAmount": 5840000000
+  },
+  {
+    "name": "Chi tiết như tài liệu đính kèm \"Đề xuất về hàng hóa của nhà thầu\"",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 7851400000,
+    "totalAmount": 31405600000
+  },
+  {
+    "name": "Chi tiết như tài liệu đính kèm \"Đề xuất về hàng hóa của nhà thầu\"",
+    "feature": "N/A",
+    "quantity": 32,
+    "unitPrice": 2100000,
+    "totalAmount": 67200000
+  },
+  {
+    "name": "FORTINET",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 4767826800,
+    "totalAmount": 9535653600
+  },
+  {
+    "name": "F5",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 2223595000,
+    "totalAmount": 4447190000
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 127500000,
+    "totalAmount": 255000000
+  },
+  {
+    "name": "Fortinet\n",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 1741143100,
+    "totalAmount": 10446858600
+  },
+  {
+    "name": "Sophos\n",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 880000000,
+    "totalAmount": 1760000000
+  },
+  {
+    "name": "Sophos\n",
+    "feature": "N/A",
+    "quantity": 9,
+    "unitPrice": 410500000,
+    "totalAmount": 3694500000
+  },
+  {
+    "name": "Sophos\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 359000000,
+    "totalAmount": 1436000000
+  },
+  {
+    "name": "Check Point",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 865000000,
+    "totalAmount": 865000000
+  },
+  {
+    "name": "Check Point",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1717210000,
+    "totalAmount": 3434420000
+  },
+  {
+    "name": "Check Point",
+    "feature": "N/A",
+    "quantity": 16,
+    "unitPrice": 6385500,
+    "totalAmount": 102168000
+  },
+  {
+    "name": "HPE",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 562320000,
+    "totalAmount": 1124640000
+  },
+  {
+    "name": "PaloAlto Networks",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 3420000000,
+    "totalAmount": 6840000000
+  },
+  {
+    "name": "Cisco",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1090000000,
+    "totalAmount": 2180000000
+  },
+  {
+    "name": "Sophos\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 225000000,
+    "totalAmount": 225000000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 319600000,
+    "totalAmount": 319600000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 126500000,
+    "totalAmount": 126500000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 499100000,
+    "totalAmount": 499100000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 185300000,
+    "totalAmount": 185300000
+  },
+  {
+    "name": "Chi tiết theo Danh mục chi tiết của hàng hóa dự thầu",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 839119600,
+    "totalAmount": 3356478400
+  },
+  {
+    "name": "Juniper Networks",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 111694000,
+    "totalAmount": 223388000
+  },
+  {
+    "name": "Juniper Networks",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 107954000,
+    "totalAmount": 431816000
+  },
+  {
+    "name": "Juniper Networks",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 62414000,
+    "totalAmount": 249656000
+  },
+  {
+    "name": "Juniper Networks",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 1393994800,
+    "totalAmount": 8363968800
+  },
+  {
+    "name": "Juniper Networks",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 195580000,
+    "totalAmount": 391160000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 152547000,
+    "totalAmount": 610188000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 228051000,
+    "totalAmount": 912204000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 152547000,
+    "totalAmount": 610188000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 228051000,
+    "totalAmount": 912204000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 152173000,
+    "totalAmount": 608692000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 169146000,
+    "totalAmount": 169146000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 253344000,
+    "totalAmount": 253344000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 169146000,
+    "totalAmount": 169146000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 253344000,
+    "totalAmount": 253344000
+  },
+  {
+    "name": "PaloAlto Networks\n",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 152173000,
+    "totalAmount": 152173000
+  },
+  {
+    "name": "Checkpoint",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 314160000,
+    "totalAmount": 628320000
+  },
+  {
+    "name": "Sonicwall",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 386347500,
+    "totalAmount": 386347500
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 326500000,
+    "totalAmount": 653000000
+  },
+  {
+    "name": "PALO ALTO",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 3460377800,
+    "totalAmount": 6920755600
+  },
+  {
+    "name": "Việt Nam",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 160050000,
+    "totalAmount": 160050000
+  },
+  {
+    "name": "PALO ALTO",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 2465977800,
+    "totalAmount": 2465977800
+  },
+  {
+    "name": "Việt Nam",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 46750000,
+    "totalAmount": 46750000
+  },
+  {
+    "name": "PEPLINK",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 484500000,
+    "totalAmount": 969000000
+  },
+  {
+    "name": "Việt Nam",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 35750000,
+    "totalAmount": 35750000
+  },
+  {
+    "name": "Tham chiếu danh mục hàng hóa chi tiết đính kèm E-HSDT",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 14300000000,
+    "totalAmount": 57200000000
+  },
+  {
+    "name": "Tham chiếu danh mục hàng hóa chi tiết đính kèm E-HSDT",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 770000000,
+    "totalAmount": 770000000
+  },
+  {
+    "name": "Tham chiếu danh mục hàng hóa chi tiết đính kèm E-HSDT",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 3014000000,
+    "totalAmount": 3014000000
+  },
+  {
+    "name": "Sophos",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 140000000,
+    "totalAmount": 140000000
+  },
+  {
+    "name": "Sophos",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 153000000,
+    "totalAmount": 306000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 280000000,
+    "totalAmount": 560000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 56800000,
+    "totalAmount": 56800000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 132800000,
+    "totalAmount": 132800000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 103900000,
+    "totalAmount": 103900000
+  },
+  {
+    "name": "Cpanel",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 166279889,
+    "totalAmount": 166279889
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 225000000,
+    "totalAmount": 225000000
+  },
+  {
+    "name": "Fortinet",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 225000000,
+    "totalAmount": 225000000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 342500000,
+    "totalAmount": 342500000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 216000000,
+    "totalAmount": 432000000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 73400000,
+    "totalAmount": 440400000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 2954600000,
+    "totalAmount": 5909200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 74800000,
+    "totalAmount": 74800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 232645000,
+    "totalAmount": 232645000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 336300000,
+    "totalAmount": 336300000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 69000000,
+    "totalAmount": 138000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 230000000,
+    "totalAmount": 230000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 384620000,
+    "totalAmount": 384620000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 347600000,
+    "totalAmount": 695200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 46900000,
+    "totalAmount": 93800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 47500000,
+    "totalAmount": 47500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 62500000,
+    "totalAmount": 62500000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 492000000,
+    "totalAmount": 492000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 368500000,
+    "totalAmount": 368500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 117000400,
+    "totalAmount": 117000400
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 358000000,
+    "totalAmount": 358000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 666600000,
+    "totalAmount": 666600000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1476090000,
+    "totalAmount": 2952180000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 985682900,
+    "totalAmount": 985682900
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 985682900,
+    "totalAmount": 985682900
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 111472000,
+    "totalAmount": 111472000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 253000000,
+    "totalAmount": 253000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 55890000,
+    "totalAmount": 55890000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 150600000,
+    "totalAmount": 150600000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 13,
+    "unitPrice": 8300000,
+    "totalAmount": 107900000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 1397947500,
+    "totalAmount": 5591790000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 444071150,
+    "totalAmount": 888142300
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1261000000,
+    "totalAmount": 2522000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 780000000,
+    "totalAmount": 1560000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 128000000,
+    "totalAmount": 256000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 1340000000,
+    "totalAmount": 5360000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 31460000,
+    "totalAmount": 31460000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 380000000,
+    "totalAmount": 380000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 754000000,
+    "totalAmount": 1508000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 680642300,
+    "totalAmount": 680642300
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 6111930000,
+    "totalAmount": 24447720000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 11,
+    "unitPrice": 378268000,
+    "totalAmount": 4160948000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 17950000,
+    "totalAmount": 35900000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 10900000,
+    "totalAmount": 21800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 250000,
+    "totalAmount": 500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 20,
+    "unitPrice": 10000,
+    "totalAmount": 200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 20,
+    "unitPrice": 16000,
+    "totalAmount": 320000
+  },
+  {
+    "name": "Check Point",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 650900000,
+    "totalAmount": 650900000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 115452000,
+    "totalAmount": 115452000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 299190000,
+    "totalAmount": 299190000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 170424000,
+    "totalAmount": 170424000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 460830000,
+    "totalAmount": 460830000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 8,
+    "unitPrice": 65150000,
+    "totalAmount": 521200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 84000000,
+    "totalAmount": 84000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 275000000,
+    "totalAmount": 275000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 116000000,
+    "totalAmount": 116000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 206325000,
+    "totalAmount": 206325000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 47000000,
+    "totalAmount": 47000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 25650000,
+    "totalAmount": 153900000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 60,
+    "unitPrice": 1000000,
+    "totalAmount": 60000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 136000000,
+    "totalAmount": 136000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 282000000,
+    "totalAmount": 282000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 270000000,
+    "totalAmount": 270000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 35,
+    "unitPrice": 236500000,
+    "totalAmount": 8277500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 436500000,
+    "totalAmount": 873000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 196650000,
+    "totalAmount": 393300000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 8,
+    "unitPrice": 367191000,
+    "totalAmount": 2937528000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1053000000,
+    "totalAmount": 2106000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 252000000,
+    "totalAmount": 504000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 52000000,
+    "totalAmount": 52000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 121000000,
+    "totalAmount": 121000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 95000000,
+    "totalAmount": 95000000
+  },
+  {
+    "name": "Barracuda",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 165000000,
+    "totalAmount": 165000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 12,
+    "unitPrice": 21000000,
+    "totalAmount": 252000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 225000000,
+    "totalAmount": 450000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 176000000,
+    "totalAmount": 352000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 50000000,
+    "totalAmount": 50000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 109136000,
+    "totalAmount": 109136000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 362000000,
+    "totalAmount": 362000000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 216000000,
+    "totalAmount": 432000000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 71900000,
+    "totalAmount": 431400000
+  },
+  {
+    "name": "Check Point, F5",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 123200000,
+    "totalAmount": 246400000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 22,
+    "unitPrice": 3100000,
+    "totalAmount": 68200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 158000000,
+    "totalAmount": 158000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 13,
+    "unitPrice": 10700000,
+    "totalAmount": 139100000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 35600000,
+    "totalAmount": 35600000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 29800000,
+    "totalAmount": 29800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 2088196000,
+    "totalAmount": 4176392000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 240000000,
+    "totalAmount": 0
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 120000000,
+    "totalAmount": 0
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 102000000,
+    "totalAmount": 0
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 1435434000,
+    "totalAmount": 2870868000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 347028000,
+    "totalAmount": 2082168000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 70983000,
+    "totalAmount": 141966000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 160369000,
+    "totalAmount": 641476000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 16,
+    "unitPrice": 34177000,
+    "totalAmount": 546832000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 55209000,
+    "totalAmount": 220836000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 525800000,
+    "totalAmount": 1051600000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 757152000,
+    "totalAmount": 1514304000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 30,
+    "unitPrice": 15774000,
+    "totalAmount": 473220000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 48,
+    "unitPrice": 10516000,
+    "totalAmount": 504768000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 160,
+    "unitPrice": 1051600,
+    "totalAmount": 168256000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 10,
+    "unitPrice": 1314500,
+    "totalAmount": 13145000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 10,
+    "unitPrice": 94380000,
+    "totalAmount": 943800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 277200000,
+    "totalAmount": 554400000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 10,
+    "unitPrice": 94380000,
+    "totalAmount": 943800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 28,
+    "unitPrice": 1297670000,
+    "totalAmount": 36334760000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 8,
+    "unitPrice": 1192400000,
+    "totalAmount": 9539200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 12,
+    "unitPrice": 923670000,
+    "totalAmount": 11084040000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 8,
+    "unitPrice": 2116800000,
+    "totalAmount": 16934400000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 28,
+    "unitPrice": 825500000,
+    "totalAmount": 23114000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 4,
+    "unitPrice": 819800000,
+    "totalAmount": 3279200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 40,
+    "unitPrice": 74570000,
+    "totalAmount": 2982800000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 72,
+    "unitPrice": 87725000,
+    "totalAmount": 6316200000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 72,
+    "unitPrice": 70480000,
+    "totalAmount": 5074560000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 2,
+    "unitPrice": 542250000,
+    "totalAmount": 1084500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 6,
+    "unitPrice": 18304000,
+    "totalAmount": 109824000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 87725000,
+    "totalAmount": 87725000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 47905000,
+    "totalAmount": 47905000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 7,
+    "unitPrice": 3564000,
+    "totalAmount": 24948000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 9766400000,
+    "totalAmount": 9766400000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 2136000000,
+    "totalAmount": 2136000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 8560000000,
+    "totalAmount": 8560000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 119,
+    "unitPrice": 996000,
+    "totalAmount": 118524000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 60,
+    "unitPrice": 165000,
+    "totalAmount": 9900000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 60,
+    "unitPrice": 82500,
+    "totalAmount": 4950000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 60,
+    "unitPrice": 80500,
+    "totalAmount": 4830000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 160,
+    "unitPrice": 128000,
+    "totalAmount": 20480000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 160,
+    "unitPrice": 38400,
+    "totalAmount": 6144000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 160,
+    "unitPrice": 30500,
+    "totalAmount": 4880000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 25,
+    "unitPrice": 300000,
+    "totalAmount": 7500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 25,
+    "unitPrice": 960000,
+    "totalAmount": 24000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 15,
+    "unitPrice": 77000,
+    "totalAmount": 1155000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 2500000,
+    "totalAmount": 2500000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 237000000,
+    "totalAmount": 237000000
+  },
+  {
+    "name": "N/A",
+    "feature": "N/A",
+    "quantity": 1,
+    "unitPrice": 54455000,
+    "totalAmount": 54455000
+  }
+]

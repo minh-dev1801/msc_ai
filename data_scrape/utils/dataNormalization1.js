@@ -5,7 +5,6 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import "dotenv/config";
-import { log } from "console";
 
 const NETWORK_COMPANIES_1 = [
   "Palo Alto",

@@ -19,7 +19,8 @@ const sequelize = new Sequelize({
 // Kiểm tra kết nối
 export const connectToSQLServer = async () => {
   try {
-    await sequelize.sync({ force: true }); 
+    await sequelize.authenticate();
+    await sequelize.sync({ force: false });
   } catch (error) {
     console.error("Lỗi kết nối hoặc đồng bộ:", error);
   }
