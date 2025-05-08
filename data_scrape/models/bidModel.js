@@ -4,7 +4,11 @@ import sequelize from "../database/db.js";
 const Bid = sequelize.define(
   "Bid",
   {
-    id: { type: DataTypes.STRING, primaryKey: true },
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     bidName: { type: DataTypes.STRING },
     bidCloseDate: { type: DataTypes.DATE },
     year: { type: DataTypes.INTEGER },
@@ -18,7 +22,7 @@ const Bid = sequelize.define(
   },
   {
     tableName: "Bids",
-    timestamps: false,
+    timestamps: true,
   }
 );
 

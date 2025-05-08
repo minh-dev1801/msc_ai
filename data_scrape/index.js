@@ -6,7 +6,7 @@ import { cleanAndNormalizeBidData } from "./utils/dataNormalization1.js";
 import { connectToSQLServer } from "./database/db.js";
 import Bid from "./models/bidModel.js";
 import { normalVendorsInfo } from "./utils/normalVendor.js";
-import { Vendor } from "./models/index.js";
+import { Op, Vendor, VendorBid, sequelize } from "./models/index.js";
 
 const keyword = process.argv[2] || "";
 const type = process.argv[3] || "";
@@ -273,19 +273,6 @@ async function processDataStream(keyword, typeFilter) {
   return allData;
 }
 
-const saveToSQLServer = async (data) => {
-  const processedData = data.map((item) => {
-    if (item.vendors && typeof item.vendors === "object") {
-      item.vendors = JSON.stringify(item.vendors);
-    } else if (!item.vendors) {
-      item.vendors = "{}";
-    }
-    return item;
-  });
-
-  await Bid.bulkCreate(processedData);
-};
-
 async function main() {
   try {
     console.time("⏳ Quá trình thu thập dữ liệu");
@@ -296,14 +283,63 @@ async function main() {
 
     if (finalData.length > 0) {
       console.log("🔄 Đang lấy thông tin chi tiết từ API...");
-      //Lọc danh sách các gói thầu chỉ có trường `inputResultId`
+
       const enrichedData = await enrichDataWithDetails(finalData);
-
       const cleanedData = await cleanAndNormalizeBidData(enrichedData);
-      await saveToSQLServer(cleanedData);
 
-      const vendorsInfo = await normalVendorsInfo(enrichedData);
-      await Vendor.bulkCreate(vendorsInfo);
+      const result = await sequelize.transaction(async (t) => {
+        // 1. Lưu dữ liệu vào bảng Bid
+        const processedData = cleanedData.map((item) => {
+          if (item.vendors && typeof item.vendors === "object") {
+            item.vendors = JSON.stringify(item.vendors);
+          } else if (!item.vendors) {
+            item.vendors = "{}";
+          }
+          return item;
+        });
+
+        const createdBids = await Bid.bulkCreate(processedData, {
+          returning: true,
+          transaction: t, // Truyền transaction vào bulkCreate
+        });
+
+        const bidIds = createdBids.map((bid) => bid.id);
+
+        // 2. Tạo bản ghi trong bảng Vendor
+        const vendorsInfo = await normalVendorsInfo(enrichedData);
+        const createdVendors = await Vendor.bulkCreate(vendorsInfo, {
+          returning: true,
+          transaction: t, // Truyền transaction vào bulkCreate
+        });
+
+        const vendorIds = createdVendors.map((vendor) => vendor.id);
+
+        // 3. Tạo liên kết trong bảng VendorBid
+        const vendorBidData = [];
+        for (const bidId of bidIds) {
+          for (const vendorId of vendorIds) {
+            vendorBidData.push({ bidId, vendorId });
+          }
+        }
+
+        await VendorBid.bulkCreate(vendorBidData, { transaction: t });
+
+        if (bidIds.length === 0) {
+          throw new Error("Không có bản ghi Bid nào được tạo!");
+        }
+        if (vendorIds.length === 0) {
+          throw new Error("Không có bản ghi Vendor nào được tạo!");
+        }
+        if (vendorBidData.length === 0) {
+          throw new Error("Không có bản ghi VendorBid nào được tạo!");
+        }
+
+        return { bidIds, vendorIds };
+      });
+
+      console.log(
+        `Đã tạo ${result.bidIds.length} bản ghi Bid và ${result.vendorIds.length} bản ghi Vendor`
+      );
 
       const outputFile = `data-${keyword || "all"}-${type || "tatCa"}.json`;
       await fs.writeFile(outputFile, JSON.stringify(enrichedData, null, 2));
@@ -313,7 +349,7 @@ async function main() {
     console.timeEnd("⏳ Quá trình thu thập dữ liệu");
   } catch (error) {
     console.error("❌ Lỗi nghiêm trọng:", error);
-    console.error("❌ Nguyên nhân gốc:", error.parent);
+    console.error("❌ Message của lỗi:", error.message);
   } finally {
     agent.destroy();
   }

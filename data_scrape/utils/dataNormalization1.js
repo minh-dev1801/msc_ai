@@ -277,18 +277,6 @@ const extractVendors = (bid) => {
   }
 };
 
-// fs.readFile("data.json", "utf8", (err, data) => {
-//   if (err) {
-//     console.log("Lỗi khi đọc file:", err);
-//     return;
-//   }
-
-//   // Chuyển đổi dữ liệu JSON thành đối tượng JavaScript
-//   const jsonData = JSON.parse(data);
-
-//   cleanAndNormalizeBidData(jsonData);
-// });
-
 export const cleanAndNormalizeBidData = async (rawData) => {
   const FIELD_CATEGORIES = loadCategories();
   const {
@@ -369,7 +357,6 @@ export const cleanAndNormalizeBidData = async (rawData) => {
         let vendors = extractVendors(bid) || {};
 
         return {
-          id: bid.id,
           bidName: Array.isArray(bid.bidName) ? bid.bidName[0] : bid.bidName,
           bidCloseDate: bid.bidCloseDate,
           year,
