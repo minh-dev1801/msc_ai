@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/db.js";
 
-const Vendor = sequelize.define(
-  "Vendor",
+const Product = sequelize.define(
+  "Product",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -24,11 +24,18 @@ const Vendor = sequelize.define(
     totalAmount: {
       type: DataTypes.DECIMAL(15, 2),
     },
+    productCategoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "ProductCategories",
+        key: "id",
+      },
+    },
   },
   {
-    tableName: "Vendors",
+    tableName: "Products",
     timestamps: true,
   }
 );
 
-export default Vendor;
+export default Product;

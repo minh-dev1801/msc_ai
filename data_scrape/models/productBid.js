@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/db.js";
 
-const VendorBid = sequelize.define(
-  "VendorBid",
+const ProductBid = sequelize.define(
+  "ProductBid",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,18 +16,18 @@ const VendorBid = sequelize.define(
         key: "id",
       },
     },
-    vendorId: {
+    productId: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Vendors",
+        model: "Products",
         key: "id",
       },
     },
   },
   {
-    tableName: "VendorBids",
+    tableName: "ProductBids",
     timestamps: true,
   }
 );
 
-export default VendorBid;
+export default ProductBid;

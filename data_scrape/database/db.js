@@ -20,7 +20,7 @@ const sequelize = new Sequelize({
 export const connectToSQLServer = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: false, logging: false });
   } catch (error) {
     console.error("Lỗi kết nối hoặc đồng bộ:", error);
   }

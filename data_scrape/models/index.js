@@ -1,19 +1,27 @@
 import sequelize from "../database/db.js";
-import Vendor from "./vendor.js";
-import Bid from "./bidModel.js";
-import VendorBid from "./vendorBid.js";
-import { Op } from "sequelize";
+import Product from "./product.js";
+import Bid from "./bid.js";
+import ProductBid from "./productBid.js";
+import ProductCategory from "./productCategory.js";
 
-Bid.belongsToMany(Vendor, {
-  through: VendorBid,
+Bid.belongsToMany(Product, {
+  through: ProductBid,
   foreignKey: "bidId",
-  otherKey: "vendorId",
+  otherKey: "productId",
 });
 
-Vendor.belongsToMany(Bid, {
-  through: VendorBid,
-  foreignKey: "vendorId",
+Product.belongsToMany(Bid, {
+  through: ProductBid,
+  foreignKey: "productId",
   otherKey: "bidId",
 });
 
-export { sequelize, Vendor, Bid, VendorBid, Op };
+Product.belongsTo(ProductCategory, {
+  foreignKey: "productCategoryId",
+});
+
+ProductCategory.hasMany(Product, {
+  foreignKey: "productCategoryId",
+});
+
+export { sequelize, Product, Bid, ProductBid, ProductCategory };

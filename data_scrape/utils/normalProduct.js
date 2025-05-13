@@ -96,7 +96,8 @@ const processTableData = (table, vendors, goodsInfo, uniqueIds) => {
 
     // Thu thập thông tin hàng hóa.
     goodsInfo.push({
-      name: item?.manufacturer || "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
+      name: item?.codeGood || "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
+      vendor: item?.manufacturer || "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
       feature: item?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
       quantity: Number(item?.qty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       unitPrice: Number(item?.bidPrice) || 0, // Đơn giá thầu, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
@@ -241,7 +242,7 @@ const extractVendorsAndGoods = (bid) => {
  * @param {Array} rawData - Mảng các đối tượng dữ liệu thầu thô.
  * @returns {Promise<Array>} - Promise trả về một mảng dữ liệu đã được xử lý.
  */
-export const normalVendorsInfo = async (rawData) => {
+export const normalProductsInfo = async (rawData) => {
   // Nếu rawData không phải là một mảng, ghi lỗi và trả về mảng rỗng.
   if (!Array.isArray(rawData)) {
     console.error("Lỗi: rawData không phải là một mảng");

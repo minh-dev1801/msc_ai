@@ -1,93 +1,66 @@
 [
   {
-    "name": "Palo Alto",
-    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
-    "quantity": 2,
-    "unitPrice": 1576800000,
-    "totalAmount": 3153600000
+    "name": "FG-401F-BDL-950-36",
+    "vendor": "Fortinet",
+    "feature": "Tham chiếu \"Danh mục hàng hóa\"",
+    "quantity": 4,
+    "unitPrice": 1373323600,
+    "totalAmount": 5493294400
   },
   {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận",
-    "quantity": 2,
-    "unitPrice": 482500800,
-    "totalAmount": 965001600
+    "name": "FG-201F-BDL-950-36",
+    "vendor": "Fortinet",
+    "feature": "Tham chiếu \"Danh mục hàng hóa\"",
+    "quantity": 18,
+    "unitPrice": 610003900,
+    "totalAmount": 10980070200
   },
   {
-    "name": "Palo Alto",
-    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "name": "FG-101F-BDL-950-36",
+    "vendor": "Fortinet",
+    "feature": "Tham chiếu \"Danh mục hàng hóa\"",
+    "quantity": 32,
+    "unitPrice": 304458000,
+    "totalAmount": 9742656000
+  },
+  {
+    "name": "FMG-VM-10-UG",
+    "vendor": "Fortinet",
+    "feature": "Tham chiếu \"Danh mục hàng hóa\"",
     "quantity": 1,
-    "unitPrice": 721970000,
-    "totalAmount": 721970000
+    "unitPrice": 346867400,
+    "totalAmount": 346867400
   },
   {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
-    "quantity": 1,
-    "unitPrice": 196311600,
-    "totalAmount": 196311600
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
+    "name": "C1300-24T-4X",
+    "vendor": "Cisco",
+    "feature": "Có khả năng ghép nhiều Switch thành một switch (Stackable):Hỗ trợ lên đến 8 Switch\r\nStackable: Bao gồm Module và cáp kết nối kèm theo\r\nRack-mountable:Có vật tư kèm theo\r\nCó khả năng quản trị (Manage) qua giao diện Web, SSH: Có hỗ trợ\r\nCổng mạng trên mỗi thiết bị: \" 24x 10/100/1000 ports, 4x 10 Gigabit SFP+, 1 x RJ-45 Console port\"\r\nCPU: ARM dual-core at 1.4 GHz\r\nFlash: 512 MB\r\nDRAM: 1 GB DDR4\r\nPacket buffer: 1.5 MB\r\nNăng lực thiết bị\r\nCông suất truyền 1 triệu gói tin trên giây (64-byte packets):95.23Mpps\r\nCông suất chuyển mạch:128Gbps",
     "quantity": 2,
-    "unitPrice": 196311600,
-    "totalAmount": 392623200
+    "unitPrice": 47850000,
+    "totalAmount": 95700000
   },
   {
-    "name": "Palo Alto",
-    "feature": "- Phát hiện và ngăn chặn các loại mã độc với cơ sở dữ liệu được cập nhật hàng ngày.\r\n- Phát hiện và ngăn chặn các hình thức tấn công trên lớp mạng, tấn công khai thác lỗ hổng bảo mật.\r\n- Phát hiện và ngăn chặn các kết nối C2C, sử dụng DNS sinkholing để xác định các máy bị lây nhiễm",
+    "name": "C1300-24XS",
+    "vendor": "Cisco",
+    "feature": "Có khả năng ghép nhiều Switch thành một switch (Stackable): Hỗ trợ lên đến 8 Switch\r\nStackable: Bao gồm Module và cáp kết nối kèm theo\r\nRack-mountable: Có vật tư kèm theo\r\nCó khả năng quản trị (Manage) qua giao diện Web, SSH: Có hỗ trợ\r\nCổng mạng trên mỗi thiết bị: 20 x 10 Gigabit SFP+, 4 x 10 Gigabit copper ports (combo with 4 x SFP+), 1 x GE management port, Số lượng Module kèm theo: 14 module SFP Multimode 10Gbps và 06 Module SFP to RJ45\"\r\nCPU:Tối thiểu là Dual-core và có tốc độ xử lý tối thiểu 1,4 GHz\r\nFlash:512 MB\r\nDRAM:1 GB DDR4\r\nPacket buffer: 8 MB\r\nNăng lực thiết bị\r\nCông suất truyền 1 triệu gói tin trên giây (64-byte packets): 357.14Mpps\r\nCông suất chuyển mạch: 480 Gbps",
     "quantity": 2,
-    "unitPrice": 363540000,
-    "totalAmount": 727080000
+    "unitPrice": 189035000,
+    "totalAmount": 378070000
   },
   {
-    "name": "Paessler",
-    "feature": "- Có khả năng giám sát thiết bị qua SNMP\r\n- Sử dụng bản đồ thời gian thực với thông tin trạng thái trực tiếp\r\n- Nhận thông báo khi có vấn đề hoặc số liệu bất thường\r\n- Tùy chỉnh mẫu báo cáo\r\n- Khả năng giám sát lên đến 10.000 sensor\r\n- Cung cấp bản vá, bản sửa, bản nâng cấp, firmware mới nhất \r\n- Phản hồi trong vòng 24 giờ",
-    "quantity": 1,
-    "unitPrice": 272200000,
-    "totalAmount": 272200000
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
+    "name": "XGS 4300",
+    "vendor": "Sophos",
+    "feature": "Phần cứng mỗi thiết bị\r\nRack-mountable: Có vật tư kèm theo\r\nHard Drive: 240 GB SSD\r\nCổng kết nối: 4 x GE copper,\"4 x SFP+ 10 GE fiber (bao gồm Module SFP+,10 GE Multimode)\"\r\nCổng quản trị: 1 x RJ45 MGMT\r\nHỗ trợ module mở rộng cổng mạng: Có hỗ trợ\r\nMemory: 32 DDR4\r\nThời gian bảo hành và bản quyền tường lửa: 5 năm\r\n\"Thời gian bảo hành phần cứng và bản quyền cho các tính năng:\r\n- Firewall\r\n- Intrusion Prevention System\r\n- ATP: Advanced Threat Prevention\r\n- Web Protection\r\n- Application Control\r\n- Bảo vệ DNS\r\n- Zero-day Protection\r\n- Chạy chế độ HA Active – Standby",
     "quantity": 2,
-    "unitPrice": 1127520000,
-    "totalAmount": 2255040000
+    "unitPrice": 853380000,
+    "totalAmount": 1706760000
   },
   {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
-    "quantity": 2,
-    "unitPrice": 345021120,
-    "totalAmount": 690042240
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "Bao gồm: Advanced Threat Prevention, Advanced URL Filtering, Advanced Wildfire, Advanced DNS Security and SD-WAN",
-    "quantity": 1,
-    "unitPrice": 11868000,
-    "totalAmount": 11868000
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
-    "quantity": 1,
-    "unitPrice": 3227040,
-    "totalAmount": 3227040
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "- Có thể giải quyết các câu hỏi trực tuyến sử dụng cơ sở dữ liệu tri thức và các diễn đàn thảo luận\r\n- Tải bản vá, bản sửa, bản nâng cấp, firmware mới nhất. \r\n- Mở case với trực tiếp với hãng. Hỗ trợ online và hỗ trợ qua điện thoại 24x7\r\n- Thay thế phần cứng bị lỗi",
-    "quantity": 2,
-    "unitPrice": 147906000,
-    "totalAmount": 295812000
-  },
-  {
-    "name": "Palo Alto",
-    "feature": "- Phát hiện và ngăn chặn các loại mã độc với cơ sở dữ liệu được cập nhật hàng ngày.\r\n- Phát hiện và ngăn chặn các hình thức tấn công trên lớp mạng, tấn công khai thác lỗ hổng bảo mật.\r\n- Phát hiện và ngăn chặn các kết nối C2C, sử dụng DNS sinkholing để xác định các máy bị lây nhiễm",
-    "quantity": 2,
-    "unitPrice": 273900000,
-    "totalAmount": 547800000
+    "name": "CPAP-SG19100-PLUS-SNBT",
+    "vendor": "CHECK POINT",
+    "feature": "CheckPoint 19100 Plus:\n- Interface: 8x10GbE Fiber include 06 transceivers, 4x25GbE Fiber, \n- Memory: 128GB RAM\n- Dual PSUs",
+    "quantity": 3,
+    "unitPrice": 8420060000,
+    "totalAmount": 25260180000
   }
 ]

@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node index.js \"Gia hạn bản quyền và dịch vụ hỗ trợ kỹ thuật các thiết bị Firewall PaloAlto và phần mềm giám sát mạng\" \"\""
+    "dev": "node index.js \"Firewall\" \"\""
   },
   "keywords": [],
   "author": "",

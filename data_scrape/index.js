@@ -4,9 +4,14 @@ import { promises as fs } from "fs";
 import { setTimeout } from "timers/promises";
 import { cleanAndNormalizeBidData } from "./utils/dataNormalization1.js";
 import { connectToSQLServer } from "./database/db.js";
-import Bid from "./models/bidModel.js";
-import { normalVendorsInfo } from "./utils/normalVendor.js";
-import { Op, Vendor, VendorBid, sequelize } from "./models/index.js";
+import Bid from "./models/bid.js";
+import { normalProductsInfo } from "./utils/normalProduct.js";
+import {
+  Product,
+  ProductBid,
+  sequelize,
+  ProductCategory,
+} from "./models/index.js";
 
 const keyword = process.argv[2] || "";
 const type = process.argv[3] || "";
@@ -15,8 +20,10 @@ const CONFIG = {
   API_URL: process.env.URL_API,
   DETAIL_API_URL:
     "https://muasamcong.mpi.gov.vn/o/egp-portal-contractor-selection-v2/services/expose/contractor-input-result/get?token",
-  PAGE_SIZE: 50,
-  MAX_PAGE: 200,
+  // PAGE_SIZE: 50,
+  // MAX_PAGE: 200,
+  PAGE_SIZE: 10,
+  MAX_PAGE: 1,
   CONCURRENCY: 5,
   RETRY_LIMIT: 3,
   RETRY_DELAY: 1000,
@@ -273,6 +280,17 @@ async function processDataStream(keyword, typeFilter) {
   return allData;
 }
 
+function extractVendors(productsInfo) {
+  // Lấy danh sách vendor, loại bỏ trùng lặp và chuyển thành định dạng [{ name: vendor }]
+  const vendorNames = [
+    ...new Set(productsInfo.map((product) => product.vendor)),
+  ];
+  const vendors = vendorNames.map((name) => ({ name }));
+
+  // Trả về danh sách vendor không trùng lặp
+  return vendors;
+}
+
 async function main() {
   try {
     console.time("⏳ Quá trình thu thập dữ liệu");
@@ -305,40 +323,60 @@ async function main() {
 
         const bidIds = createdBids.map((bid) => bid.id);
 
-        // 2. Tạo bản ghi trong bảng Vendor
-        const vendorsInfo = await normalVendorsInfo(enrichedData);
-        const createdVendors = await Vendor.bulkCreate(vendorsInfo, {
+        // 2. Tạo bản ghi trong bảng Product
+        const productsInfo = await normalProductsInfo(enrichedData);
+        const listVendors = extractVendors(productsInfo);
+
+        const createdProductCategory = await ProductCategory.bulkCreate(
+          listVendors,
+          {
+            returning: true,
+            transaction: t, // Truyền transaction vào bulkCreate
+          }
+        );
+
+        const vendorToCategoryIdMap = {};
+        createdProductCategory.forEach((category) => {
+          vendorToCategoryIdMap[category.name] = category.id;
+        });
+
+        productsInfo.forEach((product) => {
+          product.productCategoryId = vendorToCategoryIdMap[product.vendor];
+        });
+
+        const createdProducts = await Product.bulkCreate(productsInfo, {
           returning: true,
           transaction: t, // Truyền transaction vào bulkCreate
         });
 
-        const vendorIds = createdVendors.map((vendor) => vendor.id);
+        const productIds = createdProducts.map((product) => product.id);
 
-        // 3. Tạo liên kết trong bảng VendorBid
-        const vendorBidData = [];
+        // 3. Tạo liên kết trong bảng ProductBid
+        const productBidData = [];
+
         for (const bidId of bidIds) {
-          for (const vendorId of vendorIds) {
-            vendorBidData.push({ bidId, vendorId });
+          for (const productId of productIds) {
+            productBidData.push({ bidId, productId });
           }
         }
 
-        await VendorBid.bulkCreate(vendorBidData, { transaction: t });
+        await ProductBid.bulkCreate(productBidData, { transaction: t });
 
         if (bidIds.length === 0) {
           throw new Error("Không có bản ghi Bid nào được tạo!");
         }
-        if (vendorIds.length === 0) {
-          throw new Error("Không có bản ghi Vendor nào được tạo!");
+        if (productIds.length === 0) {
+          throw new Error("Không có bản ghi Product nào được tạo!");
         }
-        if (vendorBidData.length === 0) {
-          throw new Error("Không có bản ghi VendorBid nào được tạo!");
+        if (productBidData.length === 0) {
+          throw new Error("Không có bản ghi ProductBid nào được tạo!");
         }
 
-        return { bidIds, vendorIds };
+        return { bidIds, productIds };
       });
 
       console.log(
-        `Đã tạo ${result.bidIds.length} bản ghi Bid và ${result.vendorIds.length} bản ghi Vendor`
+        `Đã tạo ${result.bidIds.length} bản ghi Bid và ${result.productIds.length} bản ghi Vendor`
       );
 
       const outputFile = `data-${keyword || "all"}-${type || "tatCa"}.json`;
