@@ -96,7 +96,8 @@ const processTableData = (table, vendors, goodsInfo, uniqueIds) => {
 
     // Thu thập thông tin hàng hóa.
     goodsInfo.push({
-      name: item?.codeGood || "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
+      name: item?.name || "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
+      code: item?.codeGood || "N/A", // Mã sản phẩm, nếu không có thì là "N/A".
       vendor: item?.manufacturer || "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
       feature: item?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
       quantity: Number(item?.qty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
