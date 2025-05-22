@@ -9,8 +9,19 @@ const ProductCategory = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Categories",
+        key: "id",
+      },
+    },
+    productId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "Products",
+        key: "id",
+      },
     },
   },
   {

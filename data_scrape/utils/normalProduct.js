@@ -2,70 +2,54 @@
 import fs from "fs/promises";
 // Nhập và cấu hình dotenv để tải các biến môi trường từ tệp .env.
 import "dotenv/config";
-
-// Danh sách các công ty mạng, được biên dịch trước với các mẫu regex để cải thiện hiệu suất.
-const NETWORK_COMPANIES = [
-  "Palo Alto",
-  "Fortinet",
-  "Cisco",
-  "Check Point",
-  "Sophos",
-  "McAfee",
-  "Trend Micro",
-  "CrowdStrike",
-  "Barracuda",
-  "SonicWall",
-  "Bitdefender",
-  "FireEye",
-  "Qualys",
-  "WatchGuard",
-  "Zscaler",
-  "A10",
-  "Radware",
-  "Proofpoint",
-  "CyberArk",
-  "Elastic Security",
-  "Ivanti",
-  "Forcepoint",
-  "F5",
-  "Tanium",
-  "SentinelOne",
-  "AlienVault",
-  "Rapid7",
-  "Imperva",
-  "LogRhythm",
-  "Darktrace",
-  "Vormetric",
-  "Paessler",
-];
-
-// Biên dịch trước các mẫu regex một lần để cải thiện hiệu suất.
-const COMPANY_PATTERNS = NETWORK_COMPANIES.map((company) => ({
-  name: company, // Tên công ty
-  // Cải thiện mẫu regex để xử lý các biến thể về chữ hoa/thường hiệu quả hơn.
-  // \b khớp với ranh giới từ, đảm bảo chỉ khớp toàn bộ tên công ty.
-  // company.replace(/\s+/g, "\\s*") thay thế một hoặc nhiều khoảng trắng bằng không hoặc nhiều khoảng trắng,
-  // giúp khớp với các tên công ty có thể có số lượng khoảng trắng khác nhau.
-  // "i" là cờ không phân biệt chữ hoa chữ thường.
-  regex: new RegExp(`\\b${company.replace(/\s+/g, "\\s*")}\\b`, "i"),
-}));
+import {
+  NETWORK_CATEGORIES,
+  NETWORK_COMPANIES,
+} from "../constants/constants.js";
+import { findMatches } from "../helpers/commonFunc.js";
 
 /**
  * Kiểm tra xem văn bản có chứa tên công ty mạng nào không và thêm các kết quả khớp vào tập hợp vendors.
  * @param {string} text - Văn bản cần kiểm tra tên công ty.
  * @param {Set} vendors - Tập hợp (Set) để thêm tên công ty tìm thấy.
  */
-const checkAndAddVendor = (text, vendors) => {
-  // Nếu văn bản không tồn tại hoặc không phải là chuỗi, thoát khỏi hàm.
+const checkAndAddVendor = (
+  text,
+  vendors,
+  customPatterns = NETWORK_COMPANIES
+) => {
   if (!text || typeof text !== "string") return;
 
-  // Lặp qua từng mẫu công ty đã được biên dịch trước.
-  for (const { name, regex } of COMPANY_PATTERNS) {
-    // Nếu regex khớp với văn bản.
-    if (regex.test(text)) {
-      // Thêm tên công ty vào tập hợp vendors.
-      vendors.add(name);
-    }
+  const matches = findMatches(text, customPatterns, {
+    returnFirst: false, // Chỉ tìm từ đầu tiên khớp
+    flexibleSpacing: true, // Cho phép khớp "Paloalto" với "Palo Alto"
+    wholeWord: false, // Không yêu cầu từ hoàn chỉnh để khớp "Paloalto"
+    useDeviceMapping: false,
+  });
+
+  // Thêm tất cả kết quả khớp vào tập hợp vendors
+  for (const match of matches) {
+    vendors.add(match);
+  }
+};
+
+const CheckNameCategories = (
+  text,
+  nameCategories,
+  customPatterns = NETWORK_CATEGORIES
+) => {
+  if (!text || typeof text !== "string") return;
+
+  const matches = findMatches(text, customPatterns, {
+    returnFirst: false, // Chỉ tìm từ đầu tiên khớp
+    flexibleSpacing: true, // Cho phép khớp "Paloalto" với "Palo Alto"
+    wholeWord: false, // Không yêu cầu từ hoàn chỉnh để khớp "Paloalto"
+    useDeviceMapping: true,
+  });
+
+  // Thêm tất cả kết quả khớp vào tập hợp vendors
+  for (const match of matches) {
+    nameCategories.add(match);
   }
 };
 
@@ -76,7 +60,13 @@ const checkAndAddVendor = (text, vendors) => {
  * @param {Array} goodsInfo - Mảng để thu thập thông tin hàng hóa.
  * @param {Set} uniqueIds - Tập hợp (Set) để theo dõi các ID duy nhất.
  */
-const processTableData = (table, vendors, goodsInfo, uniqueIds) => {
+const processTableData = (
+  table,
+  vendors,
+  goodsInfo,
+  uniqueIds,
+  nameCategories
+) => {
   // Nếu 'table' không phải là một mảng, thoát khỏi hàm.
   if (!Array.isArray(table)) return;
 
@@ -92,13 +82,15 @@ const processTableData = (table, vendors, goodsInfo, uniqueIds) => {
     // Trích xuất nhà cung cấp từ trường 'manufacturer' (nhà sản xuất).
     if (item?.manufacturer) {
       checkAndAddVendor(item.manufacturer, vendors);
+
+      CheckNameCategories(item.name, nameCategories);
     }
 
     // Thu thập thông tin hàng hóa.
     goodsInfo.push({
-      name: item?.name || "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
+      nameCategories: "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
       code: item?.codeGood || "N/A", // Mã sản phẩm, nếu không có thì là "N/A".
-      vendor: item?.manufacturer || "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
+      vendor: "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
       feature: item?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
       quantity: Number(item?.qty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       unitPrice: Number(item?.bidPrice) || 0, // Đơn giá thầu, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
@@ -112,15 +104,28 @@ const processTableData = (table, vendors, goodsInfo, uniqueIds) => {
  * @param {Array} listTG - Dữ liệu danh sách từ gói thầu.
  * @param {Set} vendors - Tập hợp (Set) để thu thập tên nhà cung cấp.
  */
-const processListTGData = (listTG, vendors) => {
+const processListTGData = (listTG, vendors, goodsInfo, nameCategories) => {
   // Nếu 'listTG' không phải là một mảng, thoát khỏi hàm.
   if (!Array.isArray(listTG)) return;
 
   // Lặp qua từng mục hàng hóa trong listTG.
   for (const good of listTG) {
     // Kiểm tra cả trường 'serviceCategory' (loại dịch vụ) và 'id' để tìm tên nhà cung cấp.
-    if (good?.serviceCategory) checkAndAddVendor(good.serviceCategory, vendors);
-    if (good?.id) checkAndAddVendor(good.id, vendors);
+    if (good?.serviceCategory) {
+      checkAndAddVendor(good.serviceCategory, vendors);
+
+      CheckNameCategories(good.serviceCategory, nameCategories);
+    }
+
+    goodsInfo.push({
+      nameCategories: "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
+      code: good?.codeGood || "N/A", // Mã sản phẩm, nếu không có thì là "N/A".
+      vendor: "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
+      feature: good?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
+      quantity: Number(good?.originQty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
+      unitPrice: Number(good?.bidPrice) || 0, // Đơn giá thầu, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
+      totalAmount: Number(good?.intoMoney) || 0, // Tổng tiền, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
+    });
   }
 };
 
@@ -130,9 +135,16 @@ const processListTGData = (listTG, vendors) => {
  * @param {Set} vendors - Tập hợp (Set) để thu thập tên nhà cung cấp.
  * @param {Array} goodsInfo - Mảng để thu thập thông tin hàng hóa.
  * @param {Set} uniqueIds - Tập hợp (Set) để theo dõi các ID duy nhất.
+ * @param {Set} nameCategories - Tập hợp (Set) để thu thập tên danh mục.
  * @returns {boolean} - Chỉ báo thành công (true nếu thành công, false nếu thất bại).
  */
-const processGoodsList = (goodsListStr, vendors, goodsInfo, uniqueIds) => {
+const processGoodsList = (
+  goodsListStr,
+  vendors,
+  goodsInfo,
+  uniqueIds,
+  nameCategories
+) => {
   // Nếu chuỗi goodsListStr không tồn tại hoặc không phải là chuỗi, trả về false.
   if (!goodsListStr || typeof goodsListStr !== "string") return false;
 
@@ -143,7 +155,7 @@ const processGoodsList = (goodsListStr, vendors, goodsInfo, uniqueIds) => {
     // Xử lý định dạng listTG.
     // Nếu goodsList có thuộc tính listTG.
     if (goodsList?.listTG) {
-      processListTGData(goodsList.listTG, vendors);
+      processListTGData(goodsList.listTG, vendors, goodsInfo, nameCategories);
     }
 
     // Xử lý định dạng Table.
@@ -156,7 +168,8 @@ const processGoodsList = (goodsListStr, vendors, goodsInfo, uniqueIds) => {
         goodsList[0].formValue.lotContent.Table,
         vendors,
         goodsInfo,
-        uniqueIds
+        uniqueIds,
+        nameCategories
       );
     }
 
@@ -188,10 +201,15 @@ const extractVendorsAndGoods = (bid) => {
 
   // Khởi tạo một Set để lưu trữ các nhà cung cấp (đảm bảo không có trùng lặp).
   const vendors = new Set();
+
+  // Khởi tạo một Set để lưu trữ các tên danh mục (đảm bảo không có trùng lặp).
+  const nameCategories = new Set();
+
   // Khởi tạo một mảng để lưu trữ thông tin hàng hóa.
   const goodsInfo = [];
   // Khởi tạo một Set để lưu trữ các ID duy nhất.
   const uniqueIds = new Set();
+
   // Lấy ra lotResultDTO từ đối tượng bid để dễ truy cập.
   const { lotResultDTO } = bid.details.bideContractorInputResultDTO;
 
@@ -200,10 +218,22 @@ const extractVendorsAndGoods = (bid) => {
   if (Array.isArray(lotResultDTO)) {
     // Lặp qua từng lô trong lotResultDTO.
     for (const lot of lotResultDTO) {
-      // Nếu lô có thuộc tính goodsList.
+      // Code kiểm tra data của listTG
+
+      // const test = JSON.parse(lot?.goodsList);
+      // if (test?.listTG) {
+      //   console.log({ lotResultDTO });
+      // }
+
       if (lot?.goodsList) {
         // Xử lý danh sách hàng hóa của lô đó.
-        processGoodsList(lot.goodsList, vendors, goodsInfo, uniqueIds);
+        processGoodsList(
+          lot.goodsList,
+          vendors,
+          goodsInfo,
+          uniqueIds,
+          nameCategories
+        );
       }
     }
   }
@@ -217,17 +247,25 @@ const extractVendorsAndGoods = (bid) => {
     checkAndAddVendor(bidName, vendors);
   }
 
-  // Cập nhật tên nhà cung cấp trong thông tin hàng hóa nếu chúng tồn tại.
-  // Nếu có nhà cung cấp được tìm thấy VÀ có thông tin hàng hóa.
-  if (vendors.size > 0 && goodsInfo.length > 0) {
-    // Chuyển đổi Set các nhà cung cấp thành một chuỗi, ngăn cách bởi dấu phẩy và khoảng trắng.
-    const vendorString = Array.from(vendors).join(", ");
-    // Lặp qua từng mục hàng hóa.
+  console.log({ nameCategories });
+
+  // Cập nhật tên nhà cung cấp và danh mục trong thông tin hàng hóa nếu chúng tồn tại.
+  if ((vendors.size > 0 || nameCategories.size > 0) && goodsInfo.length > 0) {
+    // Chuyển đổi Set thành chuỗi nếu có dữ liệu
+    const vendorString =
+      vendors.size > 0 ? Array.from(vendors).join(", ") : "N/A";
+    const nameCategoriesString =
+      nameCategories.size > 0 ? Array.from(nameCategories).join(", ") : "N/A";
+
+    // Lặp qua từng mục hàng hóa một lần duy nhất
     goodsInfo.forEach((item) => {
-      // Nếu tên nhà sản xuất của mục hàng hóa là "N/A".
-      if (item.name === "N/A") {
-        // Cập nhật tên nhà sản xuất bằng chuỗi các nhà cung cấp đã tìm thấy.
-        item.name = vendorString;
+      // Cập nhật vendor nếu là "N/A" và có vendorString
+      if (item.vendor === "N/A" && vendorString) {
+        item.vendor = vendorString;
+      }
+      // Cập nhật nameCategories nếu là "N/A" và có nameCategoriesString
+      if (item.nameCategories === "N/A" && nameCategoriesString) {
+        item.nameCategories = nameCategoriesString;
       }
     });
   }

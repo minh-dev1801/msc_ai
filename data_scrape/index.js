@@ -11,7 +11,9 @@ import {
   ProductBid,
   sequelize,
   ProductCategory,
+  Category,
 } from "./models/index.js";
+import { NETWORK_CATEGORIES } from "./constants/constants.js";
 
 const keyword = process.argv[2] || "";
 const type = process.argv[3] || "";
@@ -280,15 +282,12 @@ async function processDataStream(keyword, typeFilter) {
   return allData;
 }
 
-function extractVendors(productsInfo) {
-  // Lấy danh sách vendor, loại bỏ trùng lặp và chuyển thành định dạng [{ name: vendor }]
-  const vendorNames = [
-    ...new Set(productsInfo.map((product) => product.vendor)),
-  ];
-  const vendors = vendorNames.map((name) => ({ name }));
+function extractNameCategories() {
+  const categoriesToInsert = NETWORK_CATEGORIES.map((category) => ({
+    name: category,
+  }));
 
-  // Trả về danh sách vendor không trùng lặp
-  return vendors;
+  return categoriesToInsert;
 }
 
 async function main() {
@@ -303,8 +302,20 @@ async function main() {
       console.log("🔄 Đang lấy thông tin chi tiết từ API...");
 
       const enrichedData = await enrichDataWithDetails(finalData);
+
+      // console.log({ enrichedData });
+
       const cleanedData = await cleanAndNormalizeBidData(enrichedData);
 
+      // const productsInfo = await normalProductsInfo(enrichedData);
+
+      // const listVendors = extractVendors(productsInfo);
+
+      // console.log({ listVendors });
+
+      // console.log("productsInfo: ", productsInfo);
+
+      // Thay thế phần code trong transaction của bạn
       const result = await sequelize.transaction(async (t) => {
         // 1. Lưu dữ liệu vào bảng Bid
         const processedData = cleanedData.map((item) => {
@@ -323,33 +334,75 @@ async function main() {
 
         const bidIds = createdBids.map((bid) => bid.id);
 
-        // 2. Tạo bản ghi trong bảng Product
-        const productsInfo = await normalProductsInfo(enrichedData);
-        const listVendors = extractVendors(productsInfo);
-
-        const createdProductCategory = await ProductCategory.bulkCreate(
-          listVendors,
+        // 1. Tạo categories
+        const categoriesToInsert = extractNameCategories();
+        const createdCategories = await Category.bulkCreate(
+          categoriesToInsert,
           {
             returning: true,
-            transaction: t, // Truyền transaction vào bulkCreate
+            transaction: t,
           }
         );
 
-        const vendorToCategoryIdMap = {};
-        createdProductCategory.forEach((category) => {
-          vendorToCategoryIdMap[category.name] = category.id;
-        });
+        // 2. Tạo products
+        const productsInfo = await normalProductsInfo(enrichedData);
 
-        productsInfo.forEach((product) => {
-          product.productCategoryId = vendorToCategoryIdMap[product.vendor];
-        });
+        if (Array.isArray(productsInfo) && productsInfo.length === 0) {
+          productsInfo.push({
+            nameCategories: "N/A",
+            code: "N/A",
+            vendor: "N/A",
+            feature: "N/A",
+            quantity: 0,
+            unitPrice: 0,
+            totalAmount: 0,
+          });
+        }
 
         const createdProducts = await Product.bulkCreate(productsInfo, {
           returning: true,
-          transaction: t, // Truyền transaction vào bulkCreate
+          transaction: t,
         });
 
-        const productIds = createdProducts.map((product) => product.id);
+        const productIds = createdProducts.map((pro) => pro.id);
+
+        // 3. Tạo mapping giữa category name và category ID
+        const categoryNameToIdMap = {};
+        createdCategories.forEach((category) => {
+          categoryNameToIdMap[category.name] = category.id;
+        });
+
+        // 4. Tạo dữ liệu cho bảng ProductCategory
+        const productCategoryData = []; // Lặp qua từng product đã được tạo
+        
+        createdProducts.forEach((product, index) => {
+          // Lấy thông tin nameCategories từ productsInfo tương ứng
+          const productInfo = productsInfo[index];
+          if (productInfo && productInfo.nameCategories) {
+            // Tách nameCategories thành mảng các tên category
+            const categoryNames = productInfo.nameCategories
+              .split(", ")
+              .map((cat) => cat.trim())
+              .filter((cat) => cat !== "" && cat !== "N/A"); // Tạo liên kết cho mỗi category của product này
+
+            categoryNames.forEach((categoryName) => {
+              const categoryId = categoryNameToIdMap[categoryName];
+              if (categoryId) {
+                productCategoryData.push({
+                  productId: product.id,
+                  categoryId: categoryId,
+                });
+              }
+            });
+          }
+        });
+
+        // 5. Lưu vào bảng ProductCategory
+        if (productCategoryData.length > 0) {
+          await ProductCategory.bulkCreate(productCategoryData, {
+            transaction: t,
+          });
+        }
 
         // 3. Tạo liên kết trong bảng ProductBid
         const productBidData = [];
@@ -362,22 +415,12 @@ async function main() {
 
         await ProductBid.bulkCreate(productBidData, { transaction: t });
 
-        if (bidIds.length === 0) {
-          throw new Error("Không có bản ghi Bid nào được tạo!");
-        }
-        if (productIds.length === 0) {
-          throw new Error("Không có bản ghi Product nào được tạo!");
-        }
-        if (productBidData.length === 0) {
-          throw new Error("Không có bản ghi ProductBid nào được tạo!");
-        }
-
-        return { bidIds, productIds };
+        return {
+          categories: createdCategories.length,
+          products: createdProducts.length,
+          productCategories: productCategoryData.length,
+        };
       });
-
-      console.log(
-        `Đã tạo ${result.bidIds.length} bản ghi Bid và ${result.productIds.length} bản ghi Vendor`
-      );
 
       const outputFile = `data-${keyword || "all"}-${type || "tatCa"}.json`;
       await fs.writeFile(outputFile, JSON.stringify(enrichedData, null, 2));

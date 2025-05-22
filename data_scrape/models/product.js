@@ -9,9 +9,6 @@ const Product = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-    },
     feature: {
       type: DataTypes.TEXT,
     },
@@ -23,13 +20,6 @@ const Product = sequelize.define(
     },
     totalAmount: {
       type: DataTypes.DECIMAL(15, 2),
-    },
-    productCategoryId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "ProductCategories",
-        key: "id",
-      },
     },
   },
   {
