@@ -91,7 +91,7 @@ const processTableData = (
       nameCategories: "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
       code: item?.codeGood || "N/A", // Mã sản phẩm, nếu không có thì là "N/A".
       vendor: "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
-      feature: item?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
+      // feature: item?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
       quantity: Number(item?.qty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       unitPrice: Number(item?.bidPrice) || 0, // Đơn giá thầu, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       totalAmount: Number(item?.amount) || 0, // Tổng tiền, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
@@ -121,7 +121,7 @@ const processListTGData = (listTG, vendors, goodsInfo, nameCategories) => {
       nameCategories: "N/A", // Tên sản phẩm, nếu không có thì là "N/A".
       code: good?.codeGood || "N/A", // Mã sản phẩm, nếu không có thì là "N/A".
       vendor: "N/A", // Tên nhà sản xuất, nếu không có thì là "N/A".
-      feature: good?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
+      // feature: good?.feature || "N/A", // Tính năng, nếu không có thì là "N/A".
       quantity: Number(good?.originQty) || 0, // Số lượng, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       unitPrice: Number(good?.bidPrice) || 0, // Đơn giá thầu, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.
       totalAmount: Number(good?.intoMoney) || 0, // Tổng tiền, chuyển đổi sang số, nếu không có hoặc lỗi thì là 0.

@@ -25,7 +25,7 @@ const CONFIG = {
   // PAGE_SIZE: 50,
   // MAX_PAGE: 200,
   PAGE_SIZE: 10,
-  MAX_PAGE: 1,
+  MAX_PAGE: 2,
   CONCURRENCY: 5,
   RETRY_LIMIT: 3,
   RETRY_DELAY: 1000,
@@ -374,7 +374,7 @@ async function main() {
 
         // 4. Tạo dữ liệu cho bảng ProductCategory
         const productCategoryData = []; // Lặp qua từng product đã được tạo
-        
+
         createdProducts.forEach((product, index) => {
           // Lấy thông tin nameCategories từ productsInfo tương ứng
           const productInfo = productsInfo[index];

@@ -9,9 +9,9 @@ const Product = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    feature: {
-      type: DataTypes.TEXT,
-    },
+    // feature: {
+    //   type: DataTypes.TEXT,
+    // },
     quantity: {
       type: DataTypes.INTEGER,
     },
