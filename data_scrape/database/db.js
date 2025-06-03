@@ -1,30 +1,27 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv/config";
 
-// Khởi tạo kết nối Sequelize
 const sequelize = new Sequelize({
-  dialect: "mssql", // Loại cơ sở dữ liệu
-  host: process.env.DB_HOST, // Địa chỉ server
-  database: process.env.DB_NAME, // Tên cơ sở dữ liệu
-  username: process.env.DB_USER, // Tên người dùng
-  password: process.env.DB_PASSWORD, // Mật khẩu
+  dialect: "mssql",
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
   dialectOptions: {
     options: {
-      encrypt: false, // Tắt mã hóa nếu không dùng Azure
-      trustServerCertificate: true, // Bỏ qua chứng chỉ nếu dùng local
+      encrypt: false,
+      trustServerCertificate: true,
     },
   },
 });
 
-// Kiểm tra kết nối
 export const connectToSQLServer = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync({ force: false, logging: false });
+    await sequelize.sync({ alter: true, logging: false });
   } catch (error) {
-    console.error("Lỗi kết nối hoặc đồng bộ:", error);
+    console.error("Error syncing database:", error);
   }
 };
 
-// Xuất sequelize để sử dụng trong model
 export default sequelize;

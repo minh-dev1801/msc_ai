@@ -9,7 +9,6 @@ dotenv.config();
 
 const router = express.Router();
 
-
 // Hàm lấy dữ liệu giá vendor - nâng cấp để hỗ trợ so sánh tốt hơn
 async function getVendorPriceData({ vendors = [], year, compareType = "all" }) {
   const whereClause = {};
@@ -18,8 +17,8 @@ async function getVendorPriceData({ vendors = [], year, compareType = "all" }) {
   // Đảm bảo chỉ tìm kiếm các vendor được đề cập
   let vendorWhereClause = {};
   if (vendors.length > 0) {
-    vendorWhereClause = { 
-      name: { [Sequelize.Op.in]: vendors.map(v => v.trim()) } 
+    vendorWhereClause = {
+      name: { [Sequelize.Op.in]: vendors.map((v) => v.trim()) },
     };
   }
 
@@ -27,30 +26,30 @@ async function getVendorPriceData({ vendors = [], year, compareType = "all" }) {
     attributes: ["name", "unitPrice", "totalAmount"],
     where: {
       ...whereClause,
-      ...vendorWhereClause
+      ...vendorWhereClause,
     },
-    order: [["totalAmount", "DESC"]]
+    order: [["totalAmount", "DESC"]],
   });
 
   // Xử lý dữ liệu dựa trên loại so sánh
-  let processedData = vendorData.map(v => ({
+  let processedData = vendorData.map((v) => ({
     name: v.name,
     unitPrice: v.unitPrice,
-    totalAmount: v.totalAmount
+    totalAmount: v.totalAmount,
   }));
-  
+
   // Lọc dữ liệu theo compareType
   if (compareType === "unitPrice") {
-    processedData = processedData.map(item => ({
+    processedData = processedData.map((item) => ({
       name: item.name,
       unitPrice: item.unitPrice,
-      totalAmount: null // Ẩn tổng giá trị
+      totalAmount: null, // Ẩn tổng giá trị
     }));
   } else if (compareType === "totalAmount") {
-    processedData = processedData.map(item => ({
+    processedData = processedData.map((item) => ({
       name: item.name,
       unitPrice: null, // Ẩn đơn giá
-      totalAmount: item.totalAmount
+      totalAmount: item.totalAmount,
     }));
   }
 
@@ -70,7 +69,7 @@ async function getFieldCategoryData({ year, vendor, top }) {
   const vendorCount = {};
   let totalVendorOccurrences = 0;
 
-  bids.forEach(bid => {
+  bids.forEach((bid) => {
     let vendorObj = {};
     try {
       if (typeof bid.vendors === "string" && bid.vendors.trim()) {
@@ -109,7 +108,7 @@ async function getFieldCategoryData({ year, vendor, top }) {
 const model = new ChatOpenAI({
   modelName: "gpt-4",
   apiKey: process.env.OPENAI_API_KEY,
-  temperature: 0.3
+  temperature: 0.3,
 });
 
 // Cấu hình tools cho AI - nâng cấp để xử lý so sánh vendor tốt hơn
@@ -122,11 +121,11 @@ const tools = [
       parameters: {
         type: "object",
         properties: {
-          description: { type: "string", description: "Mô tả biểu đồ" }
+          description: { type: "string", description: "Mô tả biểu đồ" },
         },
-        required: ["description"]
-      }
-    }
+        required: ["description"],
+      },
+    },
   },
   {
     type: "function",
@@ -139,24 +138,24 @@ const tools = [
           fieldCategories: {
             type: "array",
             items: { type: "string" },
-            description: "Danh sách lĩnh vực cần lọc"
+            description: "Danh sách lĩnh vực cần lọc",
           },
           year: {
             type: "integer",
-            description: "Lọc dữ liệu theo năm"
+            description: "Lọc dữ liệu theo năm",
           },
           top: {
             type: "integer",
-            description: "Lọc top N lĩnh vực có giá trị cao nhất"
+            description: "Lọc top N lĩnh vực có giá trị cao nhất",
           },
           vendor: {
             type: "string",
-            description: "Lọc dữ liệu theo vendor cụ thể"
-          }
+            description: "Lọc dữ liệu theo vendor cụ thể",
+          },
         },
-        required: []
-      }
-    }
+        required: [],
+      },
+    },
   },
   {
     type: "function",
@@ -169,22 +168,24 @@ const tools = [
           vendors: {
             type: "array",
             items: { type: "string" },
-            description: "Danh sách vendor cần so sánh (ví dụ: ['Vendor A', 'Vendor B'])"
+            description:
+              "Danh sách vendor cần so sánh (ví dụ: ['Vendor A', 'Vendor B'])",
           },
           year: {
             type: "integer",
-            description: "Lọc dữ liệu theo năm"
+            description: "Lọc dữ liệu theo năm",
           },
           compareType: {
-            type: "string", 
+            type: "string",
             enum: ["all", "unitPrice", "totalAmount"],
-            description: "Loại so sánh: 'all' (mặc định), 'unitPrice' (chỉ đơn giá), 'totalAmount' (chỉ tổng tiền)"
-          }
+            description:
+              "Loại so sánh: 'all' (mặc định), 'unitPrice' (chỉ đơn giá), 'totalAmount' (chỉ tổng tiền)",
+          },
         },
-        required: ["vendors"]
-      }
-    }
-  }
+        required: ["vendors"],
+      },
+    },
+  },
 ];
 
 // Helper function
@@ -220,8 +221,8 @@ router.post("/interpret", async (req, res) => {
         4. Mặc định, sử dụng compareType="all" để so sánh cả đơn giá và tổng giá trị.
         5. Với các yêu cầu khác, sử dụng selectChartType và selectChartData như bình thường.
 
-        Luôn xác định đúng các vendor được đề cập trong prompt, không thêm vendor không được nêu.`
-      ]
+        Luôn xác định đúng các vendor được đề cập trong prompt, không thêm vendor không được nêu.`,
+      ],
     ]);
 
     let chartType = "bar";
@@ -241,9 +242,12 @@ router.post("/interpret", async (req, res) => {
       }
     }
 
-    if (Object.keys(priceComparisonParams).length > 0 && priceComparisonParams.vendors?.length > 0) {
+    if (
+      Object.keys(priceComparisonParams).length > 0 &&
+      priceComparisonParams.vendors?.length > 0
+    ) {
       const priceData = await getVendorPriceData(priceComparisonParams);
-      
+
       // Trả về dữ liệu biểu đồ so sánh giá
       return res.status(200).json({
         chartType: "bar",
@@ -254,9 +258,9 @@ router.post("/interpret", async (req, res) => {
           filteredBy: {
             vendors: priceComparisonParams.vendors || [],
             year: priceComparisonParams.year || null,
-            compareType: priceComparisonParams.compareType || "all"
-          }
-        }
+            compareType: priceComparisonParams.compareType || "all",
+          },
+        },
       });
     } else {
       // Trả về dữ liệu biểu đồ thống kê lĩnh vực
@@ -270,9 +274,9 @@ router.post("/interpret", async (req, res) => {
             year: chartDataParams.year || null,
             top: chartDataParams.top || null,
             vendor: chartDataParams.vendor || null,
-            fieldCategories: chartDataParams.fieldCategories || []
-          }
-        }
+            fieldCategories: chartDataParams.fieldCategories || [],
+          },
+        },
       });
     }
   } catch (err) {
@@ -285,13 +289,11 @@ router.post("/interpret", async (req, res) => {
 router.get("/vendors", async (req, res) => {
   try {
     const vendors = await Product.findAll({
-      attributes: [
-        [Sequelize.fn('DISTINCT', Sequelize.col('name')), 'name']
-      ],
-      raw: true
+      attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("name")), "name"]],
+      raw: true,
     });
-    
-    res.json(vendors.map(v => v.name));
+
+    res.json(vendors.map((v) => v.name));
   } catch (error) {
     console.error("Lỗi khi lấy danh sách vendors:", error);
     res.status(500).json({ error: "Lỗi server" });
@@ -301,28 +303,34 @@ router.get("/vendors", async (req, res) => {
 // API endpoint để so sánh trực tiếp (không qua AI)
 router.post("/direct-compare", async (req, res) => {
   const { vendors, compareType = "all", year } = req.body;
-  
+
   if (!vendors || !Array.isArray(vendors) || vendors.length < 2) {
-    return res.status(400).json({ error: "Cần cung cấp ít nhất 2 vendor để so sánh" });
+    return res
+      .status(400)
+      .json({ error: "Cần cung cấp ít nhất 2 vendor để so sánh" });
   }
-  
+
   try {
     const data = await getVendorPriceData({ vendors, year, compareType });
-    
+
     res.status(200).json({
       chartType: "bar",
       data,
       comparisonType: "price",
       metadata: {
-        description: `So sánh ${compareType === "unitPrice" ? "đơn giá" : 
-                      compareType === "totalAmount" ? "tổng giá trị" : 
-                      "giá"} giữa ${vendors.join(", ")}`,
+        description: `So sánh ${
+          compareType === "unitPrice"
+            ? "đơn giá"
+            : compareType === "totalAmount"
+            ? "tổng giá trị"
+            : "giá"
+        } giữa ${vendors.join(", ")}`,
         filteredBy: {
           vendors,
           year: year || null,
-          compareType
-        }
-      }
+          compareType,
+        },
+      },
     });
   } catch (error) {
     console.error("Lỗi khi so sánh trực tiếp:", error);

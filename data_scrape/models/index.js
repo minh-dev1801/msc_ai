@@ -17,16 +17,24 @@ Product.belongsToMany(Bid, {
   otherKey: "bidId",
 });
 
-Category.belongsToMany(Product, {
-  through: ProductCategory,
+// Category.belongsToMany(Product, {
+//   through: ProductCategory,
+//   foreignKey: "categoryId",
+//   otherKey: "productId",
+// });
+
+// Product.belongsToMany(Category, {
+//   through: ProductCategory,
+//   foreignKey: "productId",
+//   otherKey: "categoryId",
+// });
+
+Category.hasMany(Product, {
   foreignKey: "categoryId",
-  otherKey: "productId",
 });
 
-Product.belongsToMany(Category, {
-  through: ProductCategory,
-  foreignKey: "productId",
-  otherKey: "categoryId",
+Product.belongsTo(Category, {
+  foreignKey: "categoryId",
 });
 
 export { sequelize, Product, Bid, ProductBid, ProductCategory, Category };

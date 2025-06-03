@@ -11,11 +11,18 @@ const Category = sequelize.define(
     },
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
     tableName: "Categories",
     timestamps: true,
+    indexes: [
+      {
+        unique: true,
+        fields: ["name"],
+      },
+    ],
   }
 );
 

@@ -5,7 +5,7 @@ import { setTimeout } from "timers/promises";
 import { cleanAndNormalizeBidData } from "./utils/dataNormalization1.js";
 import { connectToSQLServer } from "./database/db.js";
 import Bid from "./models/bid.js";
-import { normalProductsInfo } from "./utils/normalProduct.js";
+// import { normalProductsInfo } from "./utils/normalProduct.js";
 import {
   Product,
   ProductBid,
@@ -14,6 +14,7 @@ import {
   Category,
 } from "./models/index.js";
 import { NETWORK_CATEGORIES } from "./constants/constants.js";
+import { processBidDataWithAi } from "./utils/normalProductWithAi_1.js";
 
 const keyword = process.argv[2] || "";
 const type = process.argv[3] || "";
@@ -23,7 +24,7 @@ const CONFIG = {
   DETAIL_API_URL:
     "https://muasamcong.mpi.gov.vn/o/egp-portal-contractor-selection-v2/services/expose/contractor-input-result/get?token",
   // PAGE_SIZE: 50,
-  // MAX_PAGE: 200,
+  // MAX_PAGE: 1000,
   PAGE_SIZE: 10,
   MAX_PAGE: 2,
   CONCURRENCY: 5,
@@ -305,9 +306,16 @@ async function main() {
 
       // console.log({ enrichedData });
 
-      const cleanedData = await cleanAndNormalizeBidData(enrichedData);
+      // const cleanedData = await cleanAndNormalizeBidData(enrichedData);
 
-      // const productsInfo = await normalProductsInfo(enrichedData);
+      const productsInfo = await processBidDataWithAi(enrichedData, {
+        batchSize: 50,
+        enableDatabase: true,
+        enableOpenAI: true,
+        verbose: false,
+      });
+
+      // const list = productsInfo.map((item) => item.serviceCategory);
 
       // const listVendors = extractVendors(productsInfo);
 
@@ -316,114 +324,117 @@ async function main() {
       // console.log("productsInfo: ", productsInfo);
 
       // Thay thế phần code trong transaction của bạn
-      const result = await sequelize.transaction(async (t) => {
-        // 1. Lưu dữ liệu vào bảng Bid
-        const processedData = cleanedData.map((item) => {
-          if (item.vendors && typeof item.vendors === "object") {
-            item.vendors = JSON.stringify(item.vendors);
-          } else if (!item.vendors) {
-            item.vendors = "{}";
-          }
-          return item;
-        });
+      // await sequelize.transaction(async (t) => {
+      //   // 1. Lưu dữ liệu vào bảng Bid
+      //   // const processedData = cleanedData.map((item) => {
+      //   //   if (item.vendors && typeof item.vendors === "object") {
+      //   //     item.vendors = JSON.stringify(item.vendors);
+      //   //   } else if (!item.vendors) {
+      //   //     item.vendors = "{}";
+      //   //   }
+      //   //   return item;
+      //   // });
 
-        const createdBids = await Bid.bulkCreate(processedData, {
-          returning: true,
-          transaction: t, // Truyền transaction vào bulkCreate
-        });
+      //   // const createdBids = await Bid.bulkCreate(processedData, {
+      //   //   returning: true,
+      //   //   transaction: t, // Truyền transaction vào bulkCreate
+      //   // });
 
-        const bidIds = createdBids.map((bid) => bid.id);
+      //   // const bidIds = createdBids.map((bid) => bid.id);
 
-        // 1. Tạo categories
-        const categoriesToInsert = extractNameCategories();
-        const createdCategories = await Category.bulkCreate(
-          categoriesToInsert,
-          {
-            returning: true,
-            transaction: t,
-          }
-        );
+      //   // 1. Tạo categories
+      //   // const categoriesToInsert = extractNameCategories();
+      //   // const createdCategories = await Category.bulkCreate(
+      //   //   categoriesToInsert,
+      //   //   {
+      //   //     returning: true,
+      //   //     transaction: t,
+      //   //   }
+      //   // );
 
-        // 2. Tạo products
-        const productsInfo = await normalProductsInfo(enrichedData);
+      //   // 2. Tạo products
+      //   const productsInfo = await normalProductsInfo(enrichedData);
 
-        if (Array.isArray(productsInfo) && productsInfo.length === 0) {
-          productsInfo.push({
-            nameCategories: "N/A",
-            code: "N/A",
-            vendor: "N/A",
-            feature: "N/A",
-            quantity: 0,
-            unitPrice: 0,
-            totalAmount: 0,
-          });
-        }
+      //   if (Array.isArray(productsInfo) && productsInfo.length === 0) {
+      //     productsInfo.push({
+      //       nameCategories: "N/A",
+      //       code: "N/A",
+      //       vendor: "N/A",
+      //       feature: "N/A",
+      //       quantity: 0,
+      //       unitPrice: 0,
+      //       totalAmount: 0,
+      //     });
+      //   }
 
-        const createdProducts = await Product.bulkCreate(productsInfo, {
-          returning: true,
-          transaction: t,
-        });
+      //   const createdProducts = await Product.bulkCreate(productsInfo, {
+      //     returning: true,
+      //     transaction: t,
+      //   });
 
-        const productIds = createdProducts.map((pro) => pro.id);
+      //   // const outputFileCreatedProducts = `data-createdProducts.json`;
+      //   // await fs.writeFile(outputFileCreatedProducts, JSON.stringify(createdProducts, null, 2));
 
-        // 3. Tạo mapping giữa category name và category ID
-        const categoryNameToIdMap = {};
-        createdCategories.forEach((category) => {
-          categoryNameToIdMap[category.name] = category.id;
-        });
+      //   // const productIds = createdProducts.map((pro) => pro.id);
 
-        // 4. Tạo dữ liệu cho bảng ProductCategory
-        const productCategoryData = []; // Lặp qua từng product đã được tạo
+      //   // 3. Tạo mapping giữa category name và category ID
+      //   // const categoryNameToIdMap = {};
+      //   // createdCategories.forEach((category) => {
+      //   //   categoryNameToIdMap[category.name] = category.id;
+      //   // });
 
-        createdProducts.forEach((product, index) => {
-          // Lấy thông tin nameCategories từ productsInfo tương ứng
-          const productInfo = productsInfo[index];
-          if (productInfo && productInfo.nameCategories) {
-            // Tách nameCategories thành mảng các tên category
-            const categoryNames = productInfo.nameCategories
-              .split(", ")
-              .map((cat) => cat.trim())
-              .filter((cat) => cat !== "" && cat !== "N/A"); // Tạo liên kết cho mỗi category của product này
+      //   // 4. Tạo dữ liệu cho bảng ProductCategory
+      //   // const productCategoryData = []; // Lặp qua từng product đã được tạo
 
-            categoryNames.forEach((categoryName) => {
-              const categoryId = categoryNameToIdMap[categoryName];
-              if (categoryId) {
-                productCategoryData.push({
-                  productId: product.id,
-                  categoryId: categoryId,
-                });
-              }
-            });
-          }
-        });
+      //   // createdProducts.forEach((product, index) => {
+      //   //   // Lấy thông tin nameCategories từ productsInfo tương ứng
+      //   //   const productInfo = productsInfo[index];
+      //   //   if (productInfo && productInfo.nameCategories) {
+      //   //     // Tách nameCategories thành mảng các tên category
+      //   //     const categoryNames = productInfo.nameCategories
+      //   //       .split(", ")
+      //   //       .map((cat) => cat.trim())
+      //   //       .filter((cat) => cat !== "" && cat !== "N/A"); // Tạo liên kết cho mỗi category của product này
 
-        // 5. Lưu vào bảng ProductCategory
-        if (productCategoryData.length > 0) {
-          await ProductCategory.bulkCreate(productCategoryData, {
-            transaction: t,
-          });
-        }
+      //   //     categoryNames.forEach((categoryName) => {
+      //   //       const categoryId = categoryNameToIdMap[categoryName];
+      //   //       if (categoryId) {
+      //   //         productCategoryData.push({
+      //   //           productId: product.id,
+      //   //           categoryId: categoryId,
+      //   //         });
+      //   //       }
+      //   //     });
+      //   //   }
+      //   // });
 
-        // 3. Tạo liên kết trong bảng ProductBid
-        const productBidData = [];
+      //   // 5. Lưu vào bảng ProductCategory
+      //   // if (productCategoryData.length > 0) {
+      //   //   await ProductCategory.bulkCreate(productCategoryData, {
+      //   //     transaction: t,
+      //   //   });
+      //   // }
 
-        for (const bidId of bidIds) {
-          for (const productId of productIds) {
-            productBidData.push({ bidId, productId });
-          }
-        }
+      //   // 3. Tạo liên kết trong bảng ProductBid
+      //   // const productBidData = [];
 
-        await ProductBid.bulkCreate(productBidData, { transaction: t });
+      //   // for (const bidId of bidIds) {
+      //   //   for (const productId of productIds) {
+      //   //     productBidData.push({ bidId, productId });
+      //   //   }
+      //   // }
 
-        return {
-          categories: createdCategories.length,
-          products: createdProducts.length,
-          productCategories: productCategoryData.length,
-        };
-      });
+      //   // await ProductBid.bulkCreate(productBidData, { transaction: t });
+
+      //   // return {
+      //   //   categories: createdCategories.length,
+      //   //   products: createdProducts.length,
+      //   //   productCategories: productCategoryData.length,
+      //   // };
+      // });
 
       const outputFile = `data-${keyword || "all"}-${type || "tatCa"}.json`;
-      await fs.writeFile(outputFile, JSON.stringify(enrichedData, null, 2));
+      await fs.writeFile(outputFile, JSON.stringify(productsInfo, null, 2));
       console.log(`📄 Đã lưu file dữ liệu cuối cùng: ${outputFile}`);
     }
 

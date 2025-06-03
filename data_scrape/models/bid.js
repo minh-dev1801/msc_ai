@@ -37,10 +37,10 @@ const Bid = sequelize.define(
     fieldCategory: {
       type: DataTypes.STRING,
     },
-    vendors: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // vendors: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    // },
   },
   {
     tableName: "Bids",

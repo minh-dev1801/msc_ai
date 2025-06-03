@@ -1,0 +1,673 @@
+[
+  {
+    "bidName": "Gói thầu số 2: Gia hạn bản quyền phần mềm và bảo hành cho thiết bị Firewall PaloAlto",
+    "bidCloseDate": "2025-05-15T10:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY TNHH MỘT THÀNH VIÊN ĐIỆN LỰC ĐỒNG NAI",
+    "bidPrice": 750172000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1
+    },
+    "products": [
+      {
+        "name": "Gia hạn bản quyền phần mềm thiết bị Firewall PaloAlto PA-3220",
+        "quantity": 1,
+        "unitPrice": 323000000,
+        "totalAmount": 323000000,
+        "vendor": "N/A",
+        "manufacturer": "Palo Alto",
+        "categoryId": 10
+      },
+      {
+        "name": "Gia hạn bảo hành thiết bị Firewall PaloAlto PA-3220 (nhà thầu chào thuế GTGT 10%)",
+        "quantity": 1,
+        "unitPrice": 143000640,
+        "totalAmount": 143000640,
+        "vendor": "N/A",
+        "manufacturer": "Palo Alto",
+        "categoryId": 3
+      },
+      {
+        "name": "Gia hạn bản bảo hành thiết bị PaloAlto M-200 (nhà thầu chào thuế GTGT 10%)",
+        "quantity": 1,
+        "unitPrice": 245160000,
+        "totalAmount": 245160000,
+        "vendor": "N/A",
+        "manufacturer": "Palo Alto",
+        "categoryId": 11
+      }
+    ]
+  },
+  {
+    "bidName": "Gia hạn bản quyền, dịch vụ hỗ trợ kỹ thuật cho cặp thiết bị firewall internal PA-3440",
+    "bidCloseDate": "2025-04-26T15:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY VIỄN THÔNG ĐIỆN LỰC VÀ CÔNG NGHỆ THÔNG TIN - CHI NHÁNH TẬP ĐOÀN ĐIỆN LỰC VIỆT NAM",
+    "bidPrice": 7435372500,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1
+    },
+    "products": [
+      {
+        "name": "Gia hạn dịch vụ hỗ trợ kỹ thuật cho cặp thiết bị firewall Paloalto 3440: Partner enabled premium support renewal (yêu cầu chào giá với thuế suất VAT 10%)",
+        "quantity": 2,
+        "unitPrice": 561577500,
+        "totalAmount": 1123155000,
+        "vendor": "N/A",
+        "manufacturer": "Palo Alto",
+        "categoryId": 10
+      },
+      {
+        "name": "Gia hạn bản quyền cho cặp thiết bị firewall Paloalto 3440: Precision AI Network Security Subscription Renewal Bundle (Advanced DNS Security, Advanced URL Filtering, Advanced Threat Prevention, Advanced WildFire and SD-WAN)",
+        "quantity": 2,
+        "unitPrice": 2980539250,
+        "totalAmount": 5961078500,
+        "vendor": "N/A",
+        "manufacturer": "Palo Alto",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Đầu tư mua sắm hệ thống Firewall Backbone",
+    "bidCloseDate": "2025-04-22T14:30:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN NGOẠI THƯƠNG VIỆT NAM",
+    "bidPrice": 35196040000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1
+    },
+    "products": [
+      {
+        "name": "Hệ thống Firewall Backbone",
+        "quantity": 3,
+        "unitPrice": 11279400000,
+        "totalAmount": 33838200000,
+        "vendor": "Palo Alto Networks",
+        "manufacturer": "Palo Alto",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Đầu tư mua sắm firewall cho VCB",
+    "bidCloseDate": "2025-04-21T17:30:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN NGOẠI THƯƠNG VIỆT NAM",
+    "bidPrice": 27379363584,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Fortinet": 1
+    },
+    "products": [
+      {
+        "name": "Firewall trụ sở chi nhánh- loại 1",
+        "quantity": 4,
+        "unitPrice": 1373323600,
+        "totalAmount": 5493294400,
+        "vendor": "Fortinet",
+        "manufacturer": "Fortinet",
+        "categoryId": 3
+      },
+      {
+        "name": "Firewall trụ sở chi nhánh- loại 2",
+        "quantity": 18,
+        "unitPrice": 610003900,
+        "totalAmount": 10980070200,
+        "vendor": "Fortinet",
+        "manufacturer": "Fortinet",
+        "categoryId": 3
+      },
+      {
+        "name": "Firewall trụ sở chi nhánh- loại 3",
+        "quantity": 32,
+        "unitPrice": 304458000,
+        "totalAmount": 9742656000,
+        "vendor": "Fortinet",
+        "manufacturer": "Fortinet",
+        "categoryId": 3
+      },
+      {
+        "name": "License quản trị tập trung",
+        "quantity": 1,
+        "unitPrice": 346867400,
+        "totalAmount": 346867400,
+        "vendor": "Fortinet",
+        "manufacturer": "Fortinet",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Gói thầu số 43.2025 - Mua sắm thiết bị chuyển  mạch, thiết bị Firewall",
+    "bidCloseDate": "2025-04-11T15:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Công ty Cổ phần Điện lực Khánh Hòa",
+    "bidPrice": 2315126000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Cisco": 1,
+      "Sophos": 1
+    },
+    "products": [
+      {
+        "name": "Thiết  bị  chuyển  mạch  (Switch)  (vận  hành chức  năng có  dự  phòng (HA) cho các dịch vụ  thuộc hệ thống OT)",
+        "quantity": 2,
+        "unitPrice": 47850000,
+        "totalAmount": 95700000,
+        "vendor": "Cisco",
+        "manufacturer": "Cisco, Sophos",
+        "categoryId": 2
+      },
+      {
+        "name": "Thiết  bị  chuyển  mạch  (Switch)  (vận  hành chức năng có dự phòng (HA) cho các dịch vụ thuộc hệ thống IT)",
+        "quantity": 2,
+        "unitPrice": 189035000,
+        "totalAmount": 378070000,
+        "vendor": "Cisco",
+        "manufacturer": "Cisco, Sophos",
+        "categoryId": 2
+      },
+      {
+        "name": "Thiết bị Firewall cho hệ thống internet toàn Công ty",
+        "quantity": 2,
+        "unitPrice": 853380000,
+        "totalAmount": 1706760000,
+        "vendor": "Sophos",
+        "manufacturer": "Cisco, Sophos",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Gia hạn bản quyền tính năng bảo mật và bổ sung thời hạn bảo hành cho thiết bị Firewall core (02) tại Trung tâm dữ liệu 69 Đinh Tiên Hoàng",
+    "bidCloseDate": "2025-04-15T10:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY CÔNG NGHỆ THÔNG TIN ĐIỆN LỰC HÀ NỘI",
+    "bidPrice": 888300000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {},
+    "products": [
+      {
+        "name": "Bản quyền bảo mật (S-SRX4100-A2-1) 1 năm (Tính từ ngày kích hoạt) cho thiết bị Firewall Juniper SRX 4100",
+        "quantity": 1,
+        "unitPrice": 617198000,
+        "totalAmount": 617198000,
+        "vendor": "Juniper",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      },
+      {
+        "name": "Bảo hành 1 năm (Tính từ ngày kích hoạt) thiết bị Firewall Juniper SRX4100",
+        "quantity": 1,
+        "unitPrice": 266962000,
+        "totalAmount": 266962000,
+        "vendor": "Juniper",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Đầu tư hệ thống Firewall phân vùng Digibank",
+    "bidCloseDate": "2025-04-04T14:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "NGÂN HÀNG THƯƠNG MẠI CỔ PHẦN NGOẠI THƯƠNG VIỆT NAM",
+    "bidPrice": 25882936350,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Check Point": 1
+    },
+    "products": [
+      {
+        "name": "Hệ thống Firewall Digibank",
+        "quantity": 3,
+        "unitPrice": 8420060000,
+        "totalAmount": 25260180000,
+        "vendor": "CHECK POINT",
+        "manufacturer": "Check Point",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Gia hạn bản quyền và dịch vụ hỗ trợ kỹ thuật các thiết bị Firewall PaloAlto và phần mềm giám sát mạng",
+    "bidCloseDate": "2025-03-27T09:30:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY CÔNG NGHỆ THÔNG TIN ĐIỆN LỰC MIỀN BẮC - CHI NHÁNH TỔNG CÔNG TY ĐIỆN LỰC MIỀN BẮC",
+    "bidPrice": 10282254237,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1,
+      "Paessler": 1
+    },
+    "products": [
+      {
+        "name": "Gói bản quyền bảo mật PA-5220, Precision AI Network Security Subscription Bundle (365 ngày kể từ ngày ngày 16/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 1576800000,
+        "totalAmount": 3153600000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 3
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-5220 (Partner enabled premium support renewal, PA-5220) (365 ngày kể từ ngày 16/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 482500800,
+        "totalAmount": 965001600,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-3220, Precision AI Network Security Subscription Bundle (365 ngày kể từ ngày 26/11/2025) (năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 721970000,
+        "totalAmount": 721970000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 3
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (365 ngày kể từ ngày 26/11/2025) (năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 196311600,
+        "totalAmount": 196311600,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (365 ngày kể từ ngày 02/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 196311600,
+        "totalAmount": 392623200,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Bản quyền ngăn chặn các mối nguy cơ cho thiết bị PA-3220 (Advanced Threat prevention subscription, PA-3220) (365 ngày kể từ ngày 02/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 363540000,
+        "totalAmount": 727080000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Mua bản quyền (subcription) phần mềm giám sát PRTG (365 ngày kể từ ngày 03/12/2025)",
+        "quantity": 1,
+        "unitPrice": 272200000,
+        "totalAmount": 272200000,
+        "vendor": "Paessler",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-5220, Precision  AI Network Security Subscription Bundle (261 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 1127520000,
+        "totalAmount": 2255040000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 3
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-5220 (Partner enabled premium support renewal, PA-5220) (261 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 345021120,
+        "totalAmount": 690042240,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-3220, Precision AI Network Security Subscription Bundle (6 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 11868000,
+        "totalAmount": 11868000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 3
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (6 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 3227040,
+        "totalAmount": 3227040,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (275 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 147906000,
+        "totalAmount": 295812000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      },
+      {
+        "name": "Bản quyền ngăn chặn các mối nguy cơ cho thiết bị PA-3220 (Advanced Threat prevention subscription, PA-3220) (275 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 273900000,
+        "totalAmount": 547800000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Cung cấp, lắp đặt  thiết bị Firewall biên",
+    "bidCloseDate": "2025-03-14T10:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY CÔNG NGHỆ THÔNG TIN ĐIỆN LỰC HÀ NỘI",
+    "bidPrice": 2205892927,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {},
+    "products": [
+      {
+        "name": "Thiết bị Firewall biên kết nối các đơn vị ngoài cho Trung tâm dữ liệu 69 Đinh Tiên Hoàng",
+        "quantity": 1,
+        "unitPrice": 660000000,
+        "totalAmount": 660000000,
+        "vendor": "Juniper",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      },
+      {
+        "name": "Thiết bị Firewall biên kết nối các đơn vị ngoài cho Trung tâm dữ liệu Tây Hồ",
+        "quantity": 2,
+        "unitPrice": 675000000,
+        "totalAmount": 1350000000,
+        "vendor": "Juniper",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Bổ sung tính năng, bản quyền Agent for Bigdata cho Database Firewall và Phần mềm chống thất thoát dữ liệu (DLP) cho Trung tâm dữ liệu tỉnh",
+    "bidCloseDate": "2025-03-07T09:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Sở Thông tin và Truyền thông tỉnh Bình Dương",
+    "bidPrice": 3881750000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Imperva": 1
+    },
+    "products": [
+      {
+        "name": "Bản quyền Agent for Bigdata cho Database Firewall",
+        "quantity": 9,
+        "unitPrice": 376100000,
+        "totalAmount": 3384900000,
+        "vendor": "IMPERVA",
+        "manufacturer": "Imperva",
+        "categoryId": 10
+      },
+      {
+        "name": "Phần mềm chống thất thoát dữ liệu (DLP)",
+        "quantity": 101,
+        "unitPrice": 4725000,
+        "totalAmount": 477225000,
+        "vendor": "STORMSHIED",
+        "manufacturer": "Imperva",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Gia hạn bản quyền (license) cho các thiết bị Firewall",
+    "bidCloseDate": "2025-01-20T08:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY ĐIỆN LỰC LÂM ĐỒNG",
+    "bidPrice": 1375500000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Cisco": 1
+    },
+    "products": [
+      {
+        "name": "Cisco FPR1150 Threat Defense Threat, Malware and URL License\nCisco FPR1150 Threat Defense Threat, Malware and URL 1Y Subs",
+        "quantity": 2,
+        "unitPrice": 163000000,
+        "totalAmount": 326000000,
+        "vendor": "N/A",
+        "manufacturer": "Cisco",
+        "categoryId": 10
+      },
+      {
+        "name": "Cisco FPR2130 Threat Defense Threat, Malware and URL License. Cisco FPR2130 Threat Defense Threat, Malware and URL 1Y Subs_L-FPR2130T-TMC-1Y",
+        "quantity": 2,
+        "unitPrice": 235000000,
+        "totalAmount": 470000000,
+        "vendor": "N/A",
+        "manufacturer": "Cisco",
+        "categoryId": 3
+      },
+      {
+        "name": "Cisco FPR1120 Threat Defense Threat, Malware and URL License. Cisco FPR1120 Threat Defense Threat, Malware and URL 1Y Subs",
+        "quantity": 13,
+        "unitPrice": 43000000,
+        "totalAmount": 559000000,
+        "vendor": "N/A",
+        "manufacturer": "Cisco",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Gia hạn bản quyền và dịch vụ bảo trì, hỗ trợ kỹ thuật cho các thiết bị tường lửa Firewall Checkpoint đợt 2",
+    "bidCloseDate": "2025-01-10T14:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "NGÂN HÀNG LIÊN DOANH VIỆT- NGA",
+    "bidPrice": 1518900000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Check Point": 1
+    },
+    "products": [
+      {
+        "name": "Gia hạn bản quyền và dịch vụ bảo trì, hỗ trợ kỹ thuật cho các thiết bị tường lửa Firewall Checkpoint đợt 2",
+        "quantity": 1,
+        "unitPrice": 1412722000,
+        "totalAmount": 1412722000,
+        "vendor": "Checkpoint",
+        "manufacturer": "Check Point",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Mua Firewall cho hệ thống mạng và máy chủ public",
+    "bidCloseDate": "2025-01-04T09:15:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Trường Đại học Sư phạm, Đại học Thái Nguyên",
+    "bidPrice": 960000000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Sophos": 1
+    },
+    "products": [
+      {
+        "name": "Thiết bị tường lửa",
+        "quantity": 1,
+        "unitPrice": 420000000,
+        "totalAmount": 420000000,
+        "vendor": "Sophos",
+        "manufacturer": "Sophos",
+        "categoryId": 3
+      },
+      {
+        "name": "License Standard Protection 2 năm",
+        "quantity": 1,
+        "unitPrice": 388000000,
+        "totalAmount": 388000000,
+        "vendor": "Sophos",
+        "manufacturer": "Sophos",
+        "categoryId": 10
+      },
+      {
+        "name": "License Webserver Protection 2 năm",
+        "quantity": 1,
+        "unitPrice": 130000000,
+        "totalAmount": 130000000,
+        "vendor": "Sophos",
+        "manufacturer": "Sophos",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Gói thầu số 3: Mua sắm thiết bị Firewall WAN",
+    "bidCloseDate": "2025-01-13T10:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY CÔNG NGHỆ THÔNG TIN ĐIỆN LỰC MIỀN BẮC - CHI NHÁNH TỔNG CÔNG TY ĐIỆN LỰC MIỀN BẮC",
+    "bidPrice": 12674414219,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {},
+    "products": [
+      {
+        "name": "Phần cứng thiết bị tường lửa",
+        "quantity": 12,
+        "unitPrice": 869000000,
+        "totalAmount": 10428000000,
+        "vendor": "Tham chiếu \"Danh mục vật tư thiết bị\" dự thầu",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      },
+      {
+        "name": "Tính năng chuyên dụng (License) của thiết bị tường lửa",
+        "quantity": 12,
+        "unitPrice": 130300000,
+        "totalAmount": 1563600000,
+        "vendor": "Tham chiếu \"Danh mục vật tư thiết bị\" dự thầu",
+        "manufacturer": "N/A",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Gói thầu số 1: Mua sắm thiết bị tường lửa Firewall",
+    "bidCloseDate": "2025-01-02T10:00:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Văn phòng HĐND-UBND quận Hoàn Kiếm",
+    "bidPrice": 677000000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1
+    },
+    "products": [
+      {
+        "name": "Thiết bị tường lửa thế hệ mới",
+        "quantity": 2,
+        "unitPrice": 328500000,
+        "totalAmount": 657000000,
+        "vendor": "PaloAlto",
+        "manufacturer": "Palo Alto",
+        "categoryId": 3
+      }
+    ]
+  },
+  {
+    "bidName": "Mua sắm bản quyền phần mềm cho thiết bị Firewall Sophos XG230 (Thời hạn 3 tháng)",
+    "bidCloseDate": "2024-12-28T08:00:00",
+    "year": 2024,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Trung tâm Công nghệ thông tin và Truyền thông",
+    "bidPrice": 135000000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Sophos": 1
+    },
+    "products": [
+      {
+        "name": "Mua sắm bản quyền phần mềm cho thiết bị Firewall Sophos XG230 (Thời hạn 3 tháng)",
+        "quantity": 1,
+        "unitPrice": 134100000,
+        "totalAmount": 134100000,
+        "vendor": "Sophos",
+        "manufacturer": "Sophos",
+        "categoryId": 10
+      }
+    ]
+  },
+  {
+    "bidName": "Gói thầu số 08: Thuê bản quyền phần mềm Firewall Fortigate 400 E",
+    "bidCloseDate": "2024-12-27T08:00:00",
+    "year": 2024,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Đài Phát thanh và Truyền hình Sóc Trăng",
+    "bidPrice": 126000000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {},
+    "products": [
+      {
+        "name": "Cung cấp bản quyền phần mềm cho thiết bị tường lửa – Firewall Fortigate 400 E",
+        "quantity": 1,
+        "unitPrice": 122000000,
+        "totalAmount": 122000000,
+        "vendor": "N/A",
+        "manufacturer": "N/A",
+        "categoryId": 10
+      }
+    ]
+  }
+]
