@@ -1,0 +1,12 @@
+{
+  "IT": ["mạng máy tính", "data center", "an ninh mạng", "camera", "wifi"],
+  "CONSTRUCTION": ["xây dựng", "cầu đường", "kiến trúc", "nhà ở", "hạ tầng"],
+  "HEALTHCARE": ["y tế", "dược phẩm", "thiết bị y tế", "vật tư y tế"],
+  "EDUCATION": ["giáo dục", "đào tạo", "thiết bị giảng dạy"],
+  "TRANSPORTATION": ["vận tải", "giao thông", "logistics"],
+  "FURNITURE": ["nội thất", "trang thiết bị văn phòng"],
+  "ENERGY": ["năng lượng", "điện", "năng lượng tái tạo", "dầu khí"],
+  "AGRICULTURE": ["nông nghiệp", "thủy sản", "lâm nghiệp"],
+  "ENVIRONMENT": ["môi trường", "xử lý rác thải", "xử lý nước thải"],
+  "OTHER": ["khác"]
+}

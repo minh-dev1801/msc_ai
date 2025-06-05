@@ -1,0 +1,136 @@
+[
+  {
+    "bidName": "Gia hạn bản quyền và dịch vụ hỗ trợ kỹ thuật các thiết bị Firewall PaloAlto và phần mềm giám sát mạng",
+    "bidCloseDate": "2025-03-27T09:30:00",
+    "year": 2025,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "CÔNG TY CÔNG NGHỆ THÔNG TIN ĐIỆN LỰC MIỀN BẮC - CHI NHÁNH TỔNG CÔNG TY ĐIỆN LỰC MIỀN BẮC",
+    "bidPrice": 10282254237,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Palo Alto": 1,
+      "Paessler": 1
+    },
+    "products": [
+      {
+        "name": "Gói bản quyền bảo mật PA-5220, Precision AI Network Security Subscription Bundle (365 ngày kể từ ngày ngày 16/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 1576800000,
+        "totalAmount": 3153600000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-5220 (Partner enabled premium support renewal, PA-5220) (365 ngày kể từ ngày 16/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 482500800,
+        "totalAmount": 965001600,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-3220, Precision AI Network Security Subscription Bundle (365 ngày kể từ ngày 26/11/2025) (năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 721970000,
+        "totalAmount": 721970000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (365 ngày kể từ ngày 26/11/2025) (năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 196311600,
+        "totalAmount": 196311600,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (365 ngày kể từ ngày 02/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 196311600,
+        "totalAmount": 392623200,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Bản quyền ngăn chặn các mối nguy cơ cho thiết bị PA-3220 (Advanced Threat prevention subscription, PA-3220) (365 ngày kể từ ngày 02/3/2025) (năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 363540000,
+        "totalAmount": 727080000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Mua bản quyền (subcription) phần mềm giám sát PRTG (365 ngày kể từ ngày 03/12/2025)",
+        "quantity": 1,
+        "unitPrice": 272200000,
+        "totalAmount": 272200000,
+        "vendor": "Paessler",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-5220, Precision  AI Network Security Subscription Bundle (261 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 1127520000,
+        "totalAmount": 2255040000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-5220 (Partner enabled premium support renewal, PA-5220) (261 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 345021120,
+        "totalAmount": 690042240,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Gói bản quyền bảo mật PA-3220, Precision AI Network Security Subscription Bundle (6 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 11868000,
+        "totalAmount": 11868000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (6 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 1,
+        "unitPrice": 3227040,
+        "totalAmount": 3227040,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Dịch vụ hỗ trợ kỹ thuật cho thiết bị PA-3220 (Partner enabled premium support renewal, PA-3220) (275 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 147906000,
+        "totalAmount": 295812000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      },
+      {
+        "name": "Bản quyền ngăn chặn các mối nguy cơ cho thiết bị PA-3220 (Advanced Threat prevention subscription, PA-3220) (275 ngày kể từ ngày hết hạn năm thứ nhất)",
+        "quantity": 2,
+        "unitPrice": 273900000,
+        "totalAmount": 547800000,
+        "vendor": "Palo Alto",
+        "manufacturer": "Palo Alto, Paessler",
+        "categoryId": 11
+      }
+    ]
+  }
+]

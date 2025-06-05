@@ -1,0 +1,27 @@
+[
+  {
+    "bidName": "Mua sắm bản quyền phần mềm cho thiết bị Firewall Sophos XG230 (Thời hạn 3 tháng)",
+    "bidCloseDate": "2024-12-28T08:00:00",
+    "year": 2024,
+    "isClosed": true,
+    "hasWinner": true,
+    "investorName": "Trung tâm Công nghệ thông tin và Truyền thông",
+    "bidPrice": 135000000,
+    "fieldCategory": "an ninh mạng",
+    "fieldGroup": "IT",
+    "vendors": {
+      "Sophos": 1
+    },
+    "products": [
+      {
+        "name": "Mua sắm bản quyền phần mềm cho thiết bị Firewall Sophos XG230 (Thời hạn 3 tháng)",
+        "quantity": 1,
+        "unitPrice": 134100000,
+        "totalAmount": 134100000,
+        "vendor": "Sophos",
+        "manufacturer": "Sophos",
+        "categoryId": 10
+      }
+    ]
+  }
+]
