@@ -17,6 +17,11 @@ const Contractor = sequelize.define(
   {
     tableName: "Contractors",
     timestamps: true,
+    indexes: [
+      {
+        fields: ["name"],
+      },
+    ],
   }
 );
 

@@ -2,11 +2,11 @@ import sequelize from "../database/db.js";
 import Product from "./product.js";
 import Bid from "./bid.js";
 import ProductBid from "./productBid.js";
-
 import Contractor from "./contractor.js";
 import Category from "./category.js";
+import ContractorBid from "./contractorBid.js";
 
-// Mối quan hệ nhiều-nhiều giữa Bid và Product thông qua ProductBid
+// Nhiều-nhiều: Bid - Product qua ProductBid
 Bid.belongsToMany(Product, {
   through: ProductBid,
   foreignKey: "bidId",
@@ -19,13 +19,38 @@ Product.belongsToMany(Bid, {
   otherKey: "bidId",
 });
 
-// Mối quan hệ một-nhiều giữa Contractor và Bid
-Contractor.hasMany(Bid, {
+// Nhiều-nhiều: Contractor - Bid qua ContractorBid
+Contractor.belongsToMany(Bid, {
+  through: ContractorBid,
   foreignKey: "contractorId",
+  otherKey: "bidId",
+  as: "participatedBids",
 });
 
-Bid.belongsTo(Contractor, {
-  foreignKey: "contractorId",
+Bid.belongsToMany(Contractor, {
+  through: ContractorBid,
+  foreignKey: "bidId",
+  otherKey: "contractorId",
+  as: "participants",
 });
 
-export { sequelize, Product, Bid, ProductBid, Contractor, Category };
+// Một-nhiều: Category - Product
+Category.hasMany(Product, {
+  foreignKey: "categoryId",
+  as: "products",
+});
+
+Product.belongsTo(Category, {
+  foreignKey: "categoryId",
+  as: "category",
+});
+
+export {
+  sequelize,
+  Product,
+  Bid,
+  ProductBid,
+  Contractor,
+  Category,
+  ContractorBid,
+};

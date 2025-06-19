@@ -27,7 +27,7 @@ const ProductBid = sequelize.define(
   {
     tableName: "ProductBids",
     timestamps: true,
-    indexes: [{ unique: true, fields: ["bidId", "productId"] }],
+    // indexes: [{ unique: true, fields: ["bidId", "productId"] }],
   }
 );
 

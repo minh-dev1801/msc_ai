@@ -10,6 +10,7 @@ import {
   Bid,
   Category,
   Contractor,
+  ContractorBid,
   Product,
   ProductBid,
 } from "../models/index.js";
@@ -296,7 +297,6 @@ class OpenAIService {
         apiKey,
         timeout: CONFIG.OPENAI.TIMEOUT,
       });
-      Logger.logInfo("initializeClient", "Client OpenAI khởi tạo thành công.");
       return client;
     } catch (error) {
       Logger.logError("initializeClient", error, {
@@ -419,23 +419,44 @@ class VendorExtractor {
   static extractFromBid(bid) {
     const vendors = new Set();
     const goodsInfo = [];
-    let contractorName = "N/A";
 
     try {
       const lotResultDTO =
         bid?.details?.bideContractorInputResultDTO?.lotResultDTO;
-      contractorName = bid?.contractorName ?? "N/A";
 
-      // if (
-      //   contractorName &&
-      //   Array.isArray(contractorName) &&
-      //   contractorName.length > 0
-      // ) {
-      //   this.contractorNames.push(contractorName[0]);
-      // }
+      let contractorList = [];
 
       if (!Array.isArray(lotResultDTO)) {
         return { vendors, goodsInfo };
+      }
+
+      if (lotResultDTO.length === 1) {
+        contractorList = lotResultDTO[0]?.contractorList;
+      } else {
+        contractorList = lotResultDTO.flatMap(
+          (lot) => lot?.contractorList ?? []
+        );
+      }
+
+      let winningContractorName = bid?.winningContractorName
+        ? bid?.winningContractorName[0]
+        : null;
+
+      const orgFullname = [];
+
+      contractorList.forEach((contractor) => {
+        if (!winningContractorName && contractor?.bidResult === 1) {
+          winningContractorName = contractor?.orgFullname;
+        }
+        orgFullname.push(contractor?.orgFullname);
+      });
+
+      if (orgFullname.length === 0) {
+        throw new Error("No orgFullname found in contractorList");
+      }
+
+      if (!winningContractorName) {
+        throw new Error("No winning contractor name found");
       }
 
       lotResultDTO.forEach((lot) => {
@@ -459,10 +480,12 @@ class VendorExtractor {
         }
       });
 
-      return { vendors, goodsInfo, contractorName };
+      return { vendors, goodsInfo, winningContractorName, orgFullname };
     } catch (error) {
-      Logger.logError("extractFromBid", error);
-      return { vendors, goodsInfo, contractorName };
+      Logger.logError("extractFromBid", error, {
+        bidId: bid?.notifyNo || bid?.bidName[0] || "Không có thông tin bid",
+      });
+      return { vendors, goodsInfo, winningContractorName, orgFullname };
     }
   }
 
@@ -611,8 +634,39 @@ class CategoryService {
     }
   }
 
+  // async saveProducts(bidId, products) {
+  //   try {
+  //     const productRecords = products.map((product) => ({
+  //       name: product.name,
+  //       quantity: product.quantity,
+  //       unitPrice: product.unitPrice,
+  //       totalAmount: product.totalAmount,
+  //       vendor: product.vendor,
+  //       categoryId: product.categoryId,
+  //     }));
+
+  //     await Product.bulkCreate(productRecords);
+  //   } catch (error) {
+  //     Logger.logError("saveProducts", error, {
+  //       bidId,
+  //       products,
+  //       errorDetails: error.stack || error.toString(),
+  //     });
+  //     throw error;
+  //   }
+  // }
+
   async saveProducts(bidId, products) {
     try {
+      // Kiểm tra đầu vào
+      if (!products || !Array.isArray(products) || products.length === 0) {
+        throw new Error("Invalid products");
+      }
+
+      if (!bidId) {
+        throw new Error("Invalid bidId");
+      }
+
       const productRecords = products.map((product) => ({
         name: product.name,
         quantity: product.quantity,
@@ -622,18 +676,17 @@ class CategoryService {
         categoryId: product.categoryId,
       }));
 
-      await Product.bulkCreate(productRecords);
-      Logger.logInfo(
-        "saveProducts",
-        `Lưu thành công ${productRecords.length} sản phẩm cho bid ${bidId}`
-      );
+      const createdProducts = await Product.bulkCreate(productRecords, {
+        returning: true,
+      });
+
+      return createdProducts.map((product) => product.id);
     } catch (error) {
       Logger.logError("saveProducts", error, {
         bidId,
         products,
         errorDetails: error.stack || error.toString(),
       });
-      throw error;
     }
   }
 }
@@ -660,7 +713,6 @@ class ProductService {
       Logger.logError("getProducts", error, {
         message: "Lỗi truy vấn bảng Product",
       });
-      throw error;
     }
   }
 }
@@ -685,57 +737,74 @@ class BidService {
       Logger.logError("getBids", error, {
         message: "Lỗi truy vấn bảng Bid",
       });
-      throw error;
     }
   }
 
-  async saveBid(bidId, bid, contractorId) {
+  async saveBid(bidId, bidData) {
     try {
+      // Kiểm tra đầu vào
+      if (!bidId || !bidData || typeof bidData !== "object") {
+        Logger.logError("saveBid", "Invalid bidId or bidData", {
+          bidId,
+          bidData,
+        });
+        throw new Error("Invalid bidId or bidData");
+      }
+
+      // Tạo bản ghi bid, loại bỏ id nếu có
       const bidRecord = {
-        ...bid,
-        id: undefined,
-        contractorId,
+        ...bidData,
+        id: undefined, // Đảm bảo không ghi đè id tự động tăng
       };
 
-      await Bid.create(bidRecord);
-      Logger.logInfo("saveBid", `Lưu thành công bản ghi cho bid ${bidId}`);
+      // Lưu bản ghi vào bảng Bid
+      const createdBid = await Bid.create(bidRecord, {
+        returning: true, // Trả về bản ghi vừa tạo
+      });
+
+      return createdBid.id;
     } catch (error) {
-      Logger.logError("saveBid", error, {
-        bid,
+      Logger.logError("saveBid", "Error saving bid", {
+        bidId,
+        bidData,
         errorDetails: error.stack || error.toString(),
       });
       throw error;
     }
   }
 
-  async saveProductBids(bidId, productBids) {
+  // async saveProductBids(bidId, productBids) {
+  //   try {
+  //     const validBids = productBids.filter((bid) => bid.bidId && bid.productId);
+
+  //     if (validBids.length === 0) {
+  //       throw new Error("No valid product bids for bib");
+  //     }
+
+  //     // Dùng upsert để xử lý từng item
+  //     await Promise.allSettled(validBids.map((bid) => ProductBid.upsert(bid)));
+  //   } catch (error) {
+  //     Logger.logError("saveProductBids", error, {
+  //       bidId,
+  //       errorDetails: error.stack || error.toString(),
+  //     });
+  //   }
+  // }
+
+  async saveProductBids(bidId, productIds) {
     try {
-      const validBids = productBids.filter((bid) => bid.bidId && bid.productId);
-
-      if (validBids.length === 0) {
-        Logger.logWarn(
-          "saveProductBids",
-          `No valid product bids for bidId: ${bidId}`
-        );
-        return;
-      }
-
       // Dùng upsert để xử lý từng item
-      const results = await Promise.allSettled(
-        validBids.map((bid) => ProductBid.upsert(bid))
-      );
+      // await Promise.allSettled(validBids.map((bid) => ProductBid.upsert(bid)));
 
-      const successful = results.filter((r) => r.status === "fulfilled").length;
-      const failed = results.filter((r) => r.status === "rejected").length;
-
-      Logger.logInfo(
-        "saveProductBids",
-        `Bid ${bidId}: ${successful} thành công, ${failed} thất bại (tổng: ${validBids.length})`
-      );
+      await productIds.forEach((productId) => {
+        ProductBid.create({
+          bidId,
+          productId,
+        });
+      });
     } catch (error) {
       Logger.logError("saveProductBids", error, {
         bidId,
-        productBidsCount: productBids.length,
         errorDetails: error.stack || error.toString(),
       });
     }
@@ -772,43 +841,85 @@ class ContractorService {
     }
   }
 
-  async saveContractor(contractorName) {
+  async saveContractor(orgFullname, winningContractorName) {
     try {
-      if (!contractorName) {
-        Logger.logError("saveContractor", "Invalid contractorName", {
-          contractorName,
+      // Kiểm tra đầu vào
+      if (
+        !orgFullname ||
+        !Array.isArray(orgFullname) ||
+        orgFullname.length === 0
+      ) {
+        throw new Error("Invalid orgFullname");
+      }
+
+      if (!winningContractorName) {
+        throw new Error("Invalid winningContractorName");
+      }
+
+      // Chuẩn hóa dữ liệu: loại bỏ khoảng trắng và tạo mảng objects
+      const data = orgFullname
+        .map((name) => (typeof name === "string" ? name.trim() : null))
+        .filter((name) => name) // Loại bỏ giá trị null/undefined
+        .map((name) => ({ name }));
+
+      // if (data.length === 0) {
+      //   throw new Error("No valid contractor names provided");
+      // }
+
+      // Kiểm tra các tên đã tồn tại
+      //SELECT name FROM Contractor WHERE name IN ('Contractor A', 'Contractor B', 'Contractor C');
+      // const existingContractors = await Contractor.findAll({
+      //   where: {
+      //     name: data.map((item) => item.name),
+      //   },
+      //   attributes: ["name"],
+      // });
+
+      // const existingNames = new Set(existingContractors.map((c) => c.name));
+
+      // Lọc ra các tên chưa tồn tại để chèn
+      // const newContractors = data.filter(
+      //   (item) => !existingNames.has(item.name)
+      // );
+
+      // if (newContractors.length === 0) {
+      //   throw new Error("All contractors already exist");
+      // }
+
+      // Sử dụng transaction để đảm bảo tính toàn vẹn dữ liệu
+      const t = await Contractor.sequelize.transaction();
+      try {
+        // Chèn các bản ghi mới với bulkCreate
+        // const createdContractors = await Contractor.bulkCreate(newContractors, {
+        //   transaction: t,
+        //   returning: true, // Trả về các bản ghi vừa tạo
+        // });
+
+        const createdContractors = await Contractor.bulkCreate(data, {
+          transaction: t,
+          returning: true, // Trả về các bản ghi vừa tạo
         });
-        return;
+
+        await t.commit();
+
+        return createdContractors.map((contractor) => {
+          if (contractor.name === winningContractorName) {
+            return {
+              contractorId: contractor.id,
+              status: "won",
+            };
+          }
+          return { contractorId: contractor.id, status: "participated" };
+        });
+      } catch (error) {
+        await t.rollback();
+        throw error;
       }
-
-      if (Array.isArray(contractorName)) {
-        contractorName = contractorName[0];
-      } else {
-        contractorName = contractorName.trim();
-      }
-
-      // Kiểm tra xem contractor đã tồn tại chưa
-      const [contractor, created] = await Contractor.findOrCreate({
-        where: { name: contractorName },
-        defaults: { name: contractorName },
-        attributes: ["id"],
-      });
-
-      Logger.logInfo(
-        "saveContractor",
-        created
-          ? `Lưu thành công contractor: ${contractorName}`
-          : `Contractor đã tồn tại: ${contractorName}`,
-        { contractorId: contractor.id }
-      );
-
-      return contractor.id;
     } catch (error) {
       Logger.logError("saveContractor", error, {
-        contractorName,
+        orgFullname,
         errorDetails: error.stack || error.toString(),
       });
-      throw error;
     }
   }
 
@@ -949,7 +1060,7 @@ class BidDataBuilder {
     };
 
     // Trích xuất thông tin vendors và products
-    const { vendors, goodsInfo, contractorName } =
+    const { vendors, goodsInfo, winningContractorName, orgFullname } =
       VendorExtractor.extractFromBid(bid);
 
     // Xử lý products với category prediction
@@ -1001,7 +1112,8 @@ class BidDataBuilder {
     return {
       originalBid,
       products,
-      contractorName,
+      winningContractorName,
+      orgFullname,
     };
   }
 }
@@ -1027,96 +1139,125 @@ class BidDataRepository {
       return;
     }
 
-    const { originalBid: bid, products, contractorName } = bidData;
+    const {
+      originalBid: bid,
+      products,
+      winningContractorName,
+      orgFullname,
+    } = bidData;
 
-    const contractorId = await this.contractorService.saveContractor(
-      contractorName
+    const listContractor = await this.contractorService.saveContractor(
+      orgFullname,
+      winningContractorName
     );
 
     // Lưu products
-    await this.categoryService.saveProducts(bid.id, products);
+    const productIds = await this.categoryService.saveProducts(
+      bid.id,
+      products
+    );
 
     // Lưu bid information
 
-    await this.bidService.saveBid(bid.id, bid, contractorId);
+    const bidId = await this.bidService.saveBid(bid.id, bid);
 
     // Tạo product-bid relationships
-    await this._saveProductBids(bid, products);
+    // await this._saveProductBids(bid, products);
+
+    await this.bidService.saveProductBids(bidId, productIds);
+
+    await this._saveContractorBids(bidId, listContractor);
   }
 
-  async _saveProductBids(bid, products) {
-    const { bidMap, bidIds } = await this.bidService.getBids();
-    this.bidMap = bidMap;
-    this.bidIds = bidIds;
+  // async _saveProductBids(bid, products) {
+  //   const { bidMap, bidIds } = await this.bidService.getBids();
+  //   this.bidMap = bidMap;
+  //   this.bidIds = bidIds;
 
-    const { productMap, productIds } = await this.productService.getProducts();
-    this.productMap = productMap;
-    this.productIds = productIds;
+  //   const { productMap, productIds } = await this.productService.getProducts();
+  //   this.productMap = productMap;
+  //   this.productIds = productIds;
 
-    // Use consistent bidId - prefer bidMap value over bid.id
-    const bidId = this.bidMap.get(bid.bidName);
+  //   // Use consistent bidId - prefer bidMap value over bid.id
+  //   const bidId = this.bidMap.get(bid.bidName);
 
-    if (!bidId) {
-      Logger.logInfo(
-        "_saveProductBids",
-        `Bid not found in map: ${bid.bidName}`
-      );
-      return;
+  //   if (!bidId) {
+  //     Logger.logInfo(
+  //       "_saveProductBids",
+  //       `Bid not found in map: ${bid.bidName}`
+  //     );
+  //     return;
+  //   }
+
+  //   const productBids = products
+  //     .map((product) => {
+  //       const productId = this.productMap.get(product.name);
+  //       if (!productId) {
+  //         Logger.logInfo(
+  //           "_saveProductBids",
+  //           `Product not found: ${product.name}`
+  //         );
+  //         return null;
+  //       }
+  //       return {
+  //         bidId: bidId,
+  //         productId: productId,
+  //       };
+  //     })
+  //     .filter(Boolean); // Remove null entries
+
+  //   if (productBids.length > 0) {
+  //     await this.bidService.saveProductBids(bidId, productBids);
+  //   } else {
+  //     Logger.logInfo(
+  //       "_saveProductBids",
+  //       `No valid products found for bid: ${bid.bidName}`
+  //     );
+  //   }
+  // }
+
+  async _saveContractorBids(bidId, listContractor) {
+    try {
+      // Kiểm tra đầu vào
+      if (!bidId || isNaN(bidId)) {
+        throw new Error("Invalid bidId");
+      }
+
+      if (!listContractor || listContractor.length === 0) {
+        throw new Error("Invalid listContractor");
+      }
+
+      // Tạo dữ liệu cho bảng ContractorBid
+      const contractorBids = listContractor.map((contractor) => ({
+        contractorId: contractor.contractorId,
+        status: contractor.status,
+        bidId,
+      }));
+
+      // Sử dụng transaction để đảm bảo tính toàn vẹn dữ liệu
+      const t = await ContractorBid.sequelize.transaction();
+      try {
+        // Lưu vào bảng ContractorBid bằng bulkCreate
+        await ContractorBid.bulkCreate(contractorBids, {
+          transaction: t,
+        });
+
+        await t.commit();
+      } catch (error) {
+        await t.rollback();
+        Logger.logError("_saveContractorBids", "Error saving ContractorBid", {
+          bidId,
+          listContractor,
+          errorDetails: error.stack || error.toString(),
+        });
+      }
+    } catch (error) {
+      Logger.logError("_saveContractorBids", error, {
+        bidId,
+        listContractor,
+        errorDetails: error.stack || error.toString(),
+      });
     }
-
-    const productBids = products
-      .map((product) => {
-        const productId = this.productMap.get(product.name);
-        if (!productId) {
-          Logger.logInfo(
-            "_saveProductBids",
-            `Product not found: ${product.name}`
-          );
-          return null;
-        }
-        return {
-          bidId: bidId,
-          productId: productId,
-        };
-      })
-      .filter(Boolean); // Remove null entries
-
-    if (productBids.length > 0) {
-      await this.bidService.saveProductBids(bidId, productBids);
-    } else {
-      Logger.logInfo(
-        "_saveProductBids",
-        `No valid products found for bid: ${bid.bidName}`
-      );
-    }
-  }
-
-  async _saveContractorCategories(products, contractorName) {
-    const categoryIds = new Set();
-    products.forEach((product) => {
-      categoryIds.add(product.categoryId);
-    });
-
-    const categoryIdsArray = Array.from(categoryIds);
-    if (categoryIdsArray.length === 0) {
-      Logger.logInfo(
-        "_saveContractorCategories",
-        "No valid categoryIds found",
-        {
-          contractorName,
-        }
-      );
-      return;
-    }
-
-    const { contractorMap } = await this.contractorService.getContractors();
-
-    const contractorCategories = categoryIdsArray.map((categoryId) => ({
-      contractorId: contractorMap.get(contractorName),
-      categoryId: categoryId,
-    }));
-
-    await this.contractorService.saveContractorCategories(contractorCategories);
   }
 
   // Utility methods
@@ -1147,7 +1288,6 @@ class BidAIPipeline {
   async initialize() {
     try {
       await this.bidDataBuilder.initialize();
-      Logger.logInfo("initialize", "BidProcessor initialized successfully");
     } catch (error) {
       Logger.logError("initialize", error, {
         message: "Failed to initialize BidProcessor",
@@ -1175,7 +1315,9 @@ class BidAIPipeline {
           }
           return bidData;
         } catch (error) {
-          Logger.logError("processSingleBid", error, { bidId: bid.id });
+          Logger.logError("processSingleBid", error, {
+            bidId: bid?.notifyNo || bid?.bidName[0] || "Không có thông tin bid",
+          });
           return null;
         }
       })

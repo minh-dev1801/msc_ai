@@ -17,7 +17,7 @@ const Product = sequelize.define(
     //   type: DataTypes.TEXT,
     // },
     vendor: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     quantity: {

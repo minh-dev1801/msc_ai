@@ -13,10 +13,10 @@ const CONFIG = {
   API_URL: process.env.URL_API,
   DETAIL_API_URL:
     "https://muasamcong.mpi.gov.vn/o/egp-portal-contractor-selection-v2/services/expose/contractor-input-result/get?token",
-  // PAGE_SIZE: 50,
-  // MAX_PAGE: 1000,
   PAGE_SIZE: 50,
-  MAX_PAGE: 1,
+  MAX_PAGE: 20,
+  // PAGE_SIZE: 50,
+  // MAX_PAGE: 1,
   CONCURRENCY: 5,
   RETRY_LIMIT: 3,
   RETRY_DELAY: 1000,

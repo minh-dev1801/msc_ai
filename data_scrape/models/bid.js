@@ -37,14 +37,6 @@ const Bid = sequelize.define(
     fieldCategory: {
       type: DataTypes.STRING,
     },
-    contractorId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "Contractors",
-        key: "id",
-      },
-    },
   },
   {
     tableName: "Bids",
